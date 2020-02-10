@@ -38,15 +38,27 @@ header {
     flex-direction: column;
 }
 
-.header-phone {
+/*настройки для всех телефонных номеров*/
+a[href^="tel:"] {    
     text-decoration: none;
-    color: black;
-    font-size: 1.5em;    
+    font-size: 1.5em;
 }
 
-.header-email {
+/*добавление к телефонным номерам иконки телефона*/
+a[href^="tel:"]:before {
+    content: "\260f";
+    margin-right: 0.5em;
+}
+
+a[href^="mailto:"]:before {
+    content: "\2709";
+    margin-right: 0.5em; 
+}
+
+a[href^="mailto:"] {
     text-decoration: none;
-    margin-top: 1em;
+    font-size: 1.5em;
+    margin-top: 0.5em;
 }
 
 /* МЕНЮ */
@@ -150,16 +162,6 @@ img {
 #footer-contacts {
     display: flex;
     flex-direction: column;
-}
-
-.footer-phone {
-    font-size: 1.5em;
-    text-decoration: none;
-}
-
-.footer-email {
-    margin-top: 1em;
-    text-decoration: none;
 }
 
 #developer {
