@@ -1,14 +1,15 @@
 * {    
     font-family: Lucida Sans, Arial, Helvetica, sans-serif;
-}
- 
-body {    
     margin: 0;
     padding: 0;
 }
+ 
+body {    
+    
+}
 
 .content {
-    margin: auto;    
+    margin: 1em auto 0;    
     width: 80%;
 } 
 
@@ -33,6 +34,17 @@ header {
 #header-contacts {
     display: flex;
     flex-direction: column;
+}
+
+.header-phone {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+.header-email {
+
 }
 
 /* МЕНЮ */
@@ -73,12 +85,17 @@ nav ul li a:hover {
 }
 
 /*Статья*/
-#header {
+#header-article {
     margin-top: 2em;
+    padding: 0.5em;
 }
 
 section {    
     margin-top: 3em;
+}
+
+section > header {
+    margin-bottom: 1em;
 }
 
 #gallery {
