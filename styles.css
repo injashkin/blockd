@@ -5,8 +5,8 @@
 }
  
 body {    
-    min-width: 240px;
-    font-size: 1.2rem;
+    min-width: 250px;
+    font-size: 1.2em;
 }
 
 .content {
@@ -179,6 +179,10 @@ img {
 }
 
 @media (max-width: 845px) {
+    body {
+        font-size: 1em;
+    }
+
     #header-content {        
         flex-direction: column;        
     }   
