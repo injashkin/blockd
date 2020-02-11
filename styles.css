@@ -6,6 +6,7 @@
  
 body {    
     min-width: 240px;
+    font-size: 1.2rem;
 }
 
 .content {
@@ -44,7 +45,8 @@ a[href^="tel:"] {
     font-size: 1.5em;
 }
 
-/*добавление к телефонным номерам иконки телефона*/
+/* добавление к телефонным номерам иконки телефона
+справочник  по символам Юникода https://unicode-table.com/ru/*/
 a[href^="tel:"]:before {
     content: "\260f";
     margin-right: 0.5em;
@@ -101,7 +103,7 @@ nav ul li a:hover {
 /*Статья*/
 #header-article {
     margin: 2em auto 1em;
-    padding: 0.5em;
+    padding: 0.7em 0;
 }
 
 section {    
@@ -186,7 +188,7 @@ img {
     }
 
     #footer {    
-        height: 12em;
+        height: 13em;
     }
 
     .footer-content {
