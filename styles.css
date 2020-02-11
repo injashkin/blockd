@@ -5,7 +5,7 @@
 }
  
 body {    
-    min-width: 250px;
+    min-width: 280px;
     font-size: 1.2em;
 }
 
@@ -45,15 +45,17 @@ a[href^="tel:"] {
     font-size: 1.5em;
 }
 
-/* добавление к телефонным номерам иконки телефона
-справочник  по символам Юникода https://unicode-table.com/ru/*/
+/*
+добавление к телефонным номерам иконки телефона
+справочник по символам Юникода https://unicode-table.com/ru/  
+*/
 a[href^="tel:"]:before {
-    content: "\260f";
+    content: "\2706";
     margin-right: 0.5em;
 }
 
 a[href^="mailto:"]:before {
-    content: "\2709";
+    content: "\1f4e7";
     margin-right: 0.5em; 
 }
 
@@ -171,17 +173,23 @@ img {
 }
 
 /* МЕДИАЗАПРОСЫ */
+@media (max-width: 1250px) {
+    nav ul li a {    
+        font-size: 1.3em;     
+    }
+}
 
 @media (max-width: 1010px) {
+    body {
+        font-size: 1em;
+    }
+
     .content {        
         width: 95%;
     } 
 }
 
 @media (max-width: 845px) {
-    body {
-        font-size: 1em;
-    }
 
     #header-content {        
         flex-direction: column;        
