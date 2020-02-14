@@ -168,6 +168,10 @@ img {
     flex-direction: column;
 }
 
+#footer-address {
+    padding: 0 1.5em;
+}
+
 #developer {
     margin-top: 1em;
 }
@@ -176,6 +180,14 @@ img {
 @media (max-width: 1250px) {
     nav ul li a {    
         font-size: 1.3em;     
+    }
+
+    a[href^="tel:"] {            
+        font-size: 1.2em;
+    }
+
+    a[href^="mailto:"] {        
+        font-size: 1.1em;        
     }
 }
 
