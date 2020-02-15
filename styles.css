@@ -202,6 +202,9 @@ img {
 }
 
 @media (max-width: 845px) {
+    .header-phone {
+        margin-top: 1em;
+    }
 
     #header-content {        
         flex-direction: column;        
@@ -223,4 +226,8 @@ img {
         margin-top: 0;
         margin-bottom: 1em;
     }
+
+    #copyright {
+        margin-top: 1em;
+    }     
 }
