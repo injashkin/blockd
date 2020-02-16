@@ -27,6 +27,10 @@ header {
     background-color: #99ccd6;
 }
 
+#header-logo-mobile {
+    display: none;
+}
+
 #header-content {
     display: flex;
     flex-direction: row;
@@ -202,6 +206,15 @@ img {
 }
 
 @media (max-width: 845px) {
+
+    #header-logo {
+        display: none;
+    }
+
+    #header-logo-mobile {
+        display: inline;
+    }
+
     .header-phone {
         margin-top: 1em;
     }
