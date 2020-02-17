@@ -27,6 +27,10 @@ header {
     background-color: #99ccd6;
 }
 
+#header-logo-mobile {
+    display: none;
+}
+
 #header-content {
     display: flex;
     flex-direction: row;
@@ -168,6 +172,10 @@ img {
     flex-direction: column;
 }
 
+#footer-address {
+    padding: 0 1.5em;
+}
+
 #developer {
     margin-top: 1em;
 }
@@ -177,9 +185,17 @@ img {
     nav ul li a {    
         font-size: 1.3em;     
     }
+
+    a[href^="tel:"] {            
+        font-size: 1.2em;
+    }
+
+    a[href^="mailto:"] {        
+        font-size: 1.1em;        
+    }
 }
 
-@media (max-width: 1010px) {
+@media (max-width: 1100px) {
     body {
         font-size: 1em;
     }
@@ -190,6 +206,18 @@ img {
 }
 
 @media (max-width: 845px) {
+
+    #header-logo {
+        display: none;
+    }
+
+    #header-logo-mobile {
+        display: inline;
+    }
+
+    .header-phone {
+        margin-top: 1em;
+    }
 
     #header-content {        
         flex-direction: column;        
@@ -211,4 +239,8 @@ img {
         margin-top: 0;
         margin-bottom: 1em;
     }
+
+    #copyright {
+        margin-top: 1em;
+    }     
 }
