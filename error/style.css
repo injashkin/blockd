@@ -49,7 +49,7 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   color: #222;
-  margin: 0;
+  margin: 0, 0, 1em, 0;
 }
 
 .notfound-search {
