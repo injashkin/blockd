@@ -1,3 +1,6 @@
+include ./components/header/header
+
+doctype html
 html(lang= 'ru')
   head
     meta(charset= 'utf-8')
@@ -9,29 +12,9 @@ html(lang= 'ru')
 
   body
     include yandex-metrika.html
-    header#header
-      #header-content.content
-        #header-logo 
-          a(href='/' title='Блок в Джигинке')
-            img(src='images/logo-blok-v-djiginke.png' alt='Блок в Джигинке')
-        #header-logo-mobile
-          a(href='/' title='Блок в Джигинке')
-            img(src='images/logo-blok-v-djiginke-mobil.png' alt='Блок в Джигинке')
-        #header-location 
-          .header-email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
-        #header-contacts 
-          a.header-phone(href='tel:+79849999355')= '+7(984)9999-3-55'
-          a.header-phone(href='tel:+79180664040')= '+7(918)066-40-40'
-      nav#menu-wrap 
-        .content 
-          ul#menu 
-            li
-              a(href='#block')= 'Блок'
-            li
-              a(href='#delivery')= 'Доставка'
-            li 
-              a(href='#contacts')= 'Контакты'
-    header#header-article.content 
+    +header()
+
+    header.header-article.content 
       h1= 'Блок строительный в Джигинке'
     article.content 
       .section-text 
