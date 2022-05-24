@@ -1,0 +1,14 @@
+mixin footer(option = {})
+
+  footer#footer 
+    .footer-content.content 
+      #footer-contacts 
+        a.footer-phone(href='tel:+79849999355')= '+7(984)9999-3-55'
+        a.footer-phone(href='tel:+79180664040')= '+7(918)066-40-40'
+      #footer-location 
+        #footer-address= 'Анапский район, с. Джигинка, ул. Асфальтная'
+        a.footer-email(href='mailto:9999355@mail.ru')='9999355@mail.ru'
+      #footer-copyright 
+        #copyright='Блок в Джигинке © 2020'
+        #developer 
+          a(href='http://jinv.ru' target='_blank')='Разработка сайта jinv.ru'

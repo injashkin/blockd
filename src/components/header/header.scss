@@ -27,32 +27,6 @@ header {
   flex-direction: column;
 }
 
-/*настройки для всех телефонных номеров*/
-a[href^='tel:'] {
-  text-decoration: none;
-  font-size: 1.5em;
-}
-
-/*
-добавление к телефонным номерам иконки телефона
-справочник по символам Юникода https://unicode-table.com/ru/  
-*/
-a[href^='tel:']:before {
-  content: '\2706';
-  margin-right: 0.5em;
-}
-
-a[href^='mailto:']:before {
-  content: '\1f4e7';
-  margin-right: 0.5em;
-}
-
-a[href^='mailto:'] {
-  text-decoration: none;
-  font-size: 1.5em;
-  margin-top: 0.5em;
-}
-
 .content {
   margin: auto;
   width: 80%;
@@ -95,21 +69,9 @@ nav ul li a:hover {
   background-color: #999;
 }
 
-img {
-  max-width: 100%;
-}
-
 @media (max-width: 1250px) {
   nav ul li a {
     font-size: 1.3em;
-  }
-
-  a[href^='tel:'] {
-    font-size: 1.2em;
-  }
-
-  a[href^='mailto:'] {
-    font-size: 1.1em;
   }
 }
 
