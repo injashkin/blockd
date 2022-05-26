@@ -5,7 +5,7 @@ header {
   text-align: center;
 }
 
-#header-content {
+.header-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,7 +22,7 @@ header {
   display: none;
 }
 
-#header-contacts {
+.header-contacts {
   display: flex;
   flex-direction: column;
 }
@@ -82,7 +82,7 @@ nav ul li a:hover {
 }
 
 @media (max-width: 845px) {
-  #header-content {
+  .header-content {
     flex-direction: column;
   }
   .header-logo {
