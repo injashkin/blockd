@@ -1,0 +1,10 @@
+mixin gallery()
+
+  - const qw = require('./components/gallery/data.json')
+
+  .gallery
+    each card in qw.cards
+      .prod-card 
+        img(src=require('./images/block-m12.jpg') alt='Блок стеновой муровой 12х20х40')        
+        h3= card.h3
+        p= card.p
