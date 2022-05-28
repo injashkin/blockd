@@ -5,6 +5,6 @@ mixin gallery()
   .gallery
     each card in qw.cards
       .prod-card 
-        img(src=require('./images/block-m12.jpg') alt='Блок стеновой муровой 12х20х40')        
+        img(src=require(`./images/${card.file}`) alt=card.alt)        
         h3= card.h3
         p= card.p
