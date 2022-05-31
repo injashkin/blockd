@@ -1,10 +1,10 @@
 mixin gallery()
 
-  - const data = require('./components/gallery/data.json')
+  - const products = require('./data/products.json')
 
   .gallery
-    each card in data.cards
+    each card in products.cards
       .prod-card 
-        img(src=require(`./images/${card.file}`) alt=card.alt)        
-        h3= card.h3
-        p= card.p
+        img(src=require(`./data/images/${card.img}`) alt=card.desc)        
+        h3= card.desc
+        p= card.price
