@@ -1,9 +1,9 @@
 mixin gallery()
 
-  - const qw = require('./components/gallery/data.json')
+  - const data = require('./components/gallery/data.json')
 
   .gallery
-    each card in qw.cards
+    each card in data.cards
       .prod-card 
         img(src=require(`./images/${card.file}`) alt=card.alt)        
         h3= card.h3
