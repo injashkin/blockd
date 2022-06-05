@@ -1,3 +1,7 @@
+//- include ../menu/menu
+
+include ../menu/menu
+
 mixin header(options = {})
 
   header.header
@@ -13,13 +17,5 @@ mixin header(options = {})
         .header-email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
       .header-contacts 
         a.header-phone(href='tel:+79849999355')= '+7(984)9999-3-55'
-        a.header-phone(href='tel:+79180664040')= '+7(918)066-40-40'
-    nav.menu-wrap 
-      .content 
-        ul.menu 
-          li
-            a(href='#block')= 'Блок'
-          li
-            a(href='#delivery')= 'Доставка'
-          li 
-            a(href='#contacts')= 'Контакты'
+        a.header-phone(href='tel:+79180664040')= '+7(918)066-40-40'    
+    +menu()
