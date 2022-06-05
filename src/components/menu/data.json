@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "href": "#block",
+      "text": "Блок"
+    },
+    {
+      "href": "#delivery",
+      "text": "Доставка"
+    },
+    {
+      "href": "#contacts",
+      "text": "Контакты"
+    }
+  ]
+}

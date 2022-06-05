@@ -1,10 +1,10 @@
 mixin menu()
+
+  - const menu = require('./components/menu/data.json')
+
   nav.menu-wrap 
     .content 
       ul.menu 
-        li
-          a(href='#block')= 'Блок'
-        li
-          a(href='#delivery')= 'Доставка'
-        li 
-          a(href='#contacts')= 'Контакты'
+        each item in menu.items
+          li
+            a(href=item.href)= item.text
