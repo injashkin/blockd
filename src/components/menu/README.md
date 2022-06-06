@@ -34,7 +34,7 @@ import '../menu';
 import './header.scss';
 ```
 
-В шаблон компонента Header `src/components/header/header.pug` с помощью `include` включаем шаблон компонента Menu `src/components/menu/menu.pug` и в нужном месте вставляем ссылку на миксин компонента Menu:
+В шаблон компонента Header `src/components/header/header.pug` с помощью `include` включаем шаблон компонента Menu `src/components/menu/menu.pug` и в нужном месте вызываем миксин `+menu()`:
 
 **src/components/header/header.pug**
 
