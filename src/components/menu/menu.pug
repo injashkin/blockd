@@ -1,10 +1,12 @@
-mixin menu()
+//-
+  options.type - тип меню ('' или desktop - для десктопов, mobile - для мобильных)
 
-  - const menu = require('./components/menu/data.json')
+mixin menu(options = {})
+  - const menu = require('./components/menu/data.json')    
 
   nav.menu-wrap 
     .content 
       ul.menu 
         each item in menu.items
-          li
+          li.menu__item
             a(href=item.href)= item.text
