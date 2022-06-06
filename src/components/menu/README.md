@@ -24,7 +24,7 @@
   ...
 ```
 
-Обычно компонент Menu используется в компоненте Header. Тогда в скрипт компонента Header `src/components/header/index.js` импортируем скрипт `src/components/menu/index.js` и файл стилей `src/components/menu/menu.scss` компонента Menu:
+Обычно компонент Menu используется в компоненте Header. Тогда в скрипт компонента Header `src/components/header/index.js` импортируем скрипт `src/components/menu/index.js` компонента Menu:
 
 **src/components/header/index.js**
 
