@@ -3,17 +3,19 @@ include ../menu/menu
 mixin header(options = {})
 
   header.header
-    .header-content.content
-      .header-logo 
+    .header__content.content
+      .header__logo 
         a(href='/' title='Блок в Джигинке')
           img(src=require('./images/logo-blok-v-djiginke.png') alt='Блок в Джигинке')
-      .header-logo-mobile
+      .header__logo_mobile
         a(href='/' title='Блок в Джигинке')
           img(src=require('./images/logo-blok-v-djiginke-mobil.png') alt='Блок в Джигинке')
-      .header-location 
-        .header-address='Анапский район, с. Джигинка, ул. Асфальтная'
-        .header-email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
-      .header-contacts 
-        a.header-phone(href='tel:+79849999355')= '+7(984)9999-3-55'
-        a.header-phone(href='tel:+79180664040')= '+7(918)066-40-40'    
-    +menu()
+      .header__location 
+        .header__address='Анапский район, с. Джигинка, ул. Асфальтная'
+        .header__email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
+      .header__contacts 
+        a.header__phone(href='tel:+79849999355')= '+7(984)9999-3-55'
+        a.header__phone(href='tel:+79180664040')= '+7(918)066-40-40'    
+    button.header__burger= 'Меню'
+    .header__menu
+      +menu()
