@@ -1,5 +1,5 @@
 #menu__toggle {
-  opacity: 0.4;
+  opacity: 0;
 }
 
 .menu__btn {
@@ -26,6 +26,8 @@
   height: 2px;
 
   background-color: #616161;
+
+  transition-duration: 0.25s;
 }
 
 .menu__btn > span::before {
@@ -40,7 +42,7 @@
 
 .menu__box {
   display: block;
-  position: fixsed;
+  position: fixed;
   visibility: hidden;
   top: 0;
   left: -100%;
@@ -56,6 +58,8 @@
 
   background-color: #eceff1;
   box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+
+  transition-duration: 0.25s;
 }
 
 .menu__item {
@@ -69,6 +73,8 @@
   font-weight: 600;
 
   text-decoration: none;
+
+  transition-duration: 0.25s;
 }
 
 .menu__item:hover {
@@ -91,5 +97,6 @@
 
 #menu__toggle:checked ~ .menu__box {
   visibility: visible;
+  // display: block;
   left: 0;
 }
