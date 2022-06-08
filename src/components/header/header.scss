@@ -22,9 +22,9 @@ header {
     display: none;
   }
 
-  &__burger {
-    display: none;
-  }
+  //&__burger {
+  //  display: none;
+  //}
 
   &__contacts {
     display: flex;
@@ -51,10 +51,10 @@ header {
     display: inline;
   }
 
-  .header__burger {
-    display: block;
-    width: 5rem;
-  }
+  //.header__burger {
+  //  display: block;
+  //  width: 5rem;
+  //}
 
   .header__phone {
     margin-top: 1em;

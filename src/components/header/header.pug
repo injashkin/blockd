@@ -1,5 +1,5 @@
 include ../menu/menu
-include ../burger/burger
+
 
 mixin header(options = {})
 
@@ -17,7 +17,7 @@ mixin header(options = {})
       .header__contacts 
         a.header__phone(href='tel:+79849999355')= '+7(984)9999-3-55'
         a.header__phone(href='tel:+79180664040')= '+7(918)066-40-40'    
-    .header__burger
+    //-.header__burger
       +burger()
     .header__menu
       +menu()
