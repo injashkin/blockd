@@ -1,16 +1,20 @@
 @import '../../styles/variables';
 
 header {
-  -webkit-box-shadow: 0 3px 5px 0 #3d3d3d;
-  -moz-box-shadow: 0 3px 5px 0 #3d3d3d;
-  box-shadow: 0 3px 5px 0 #3d3d3d;
+  -webkit-box-shadow: 0 3px 5px 0 $border;
+  -moz-box-shadow: 0 3px 5px 0 $border;
+  box-shadow: 0 3px 5px 0 $border;
   text-align: center;
+
+  & a {
+    color: $text;
+  }
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  background-color: #99ccd6;
+  background-color: $background-header;
   padding: 1em 0;
 
   &__content {

@@ -10,7 +10,7 @@
   justify-content: center;
 
   & li {
-    border-right: 1px solid $border;
+    border-right: 1px solid $border-inverse;
 
     &:last-child {
       border-right: 0;

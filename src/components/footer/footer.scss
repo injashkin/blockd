@@ -2,8 +2,13 @@
 
 .footer {
   height: 8em;
-  background-color: #b1b1b1;
+  background-color: $background;
+  color: $text-inverse;
   text-align: center;
+
+  & a {
+    color: $text-inverse;
+  }
 }
 
 .footer-content {

@@ -1,12 +1,15 @@
+@import './styles/variables';
+
 * {
-  font-family: Lucida Sans, Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 body {
+  font-family: Lucida Sans, Arial, Helvetica, sans-serif;
   min-width: 280px;
   font-size: 1.2em;
+  color: $text;
 }
 
 .content {
@@ -14,14 +17,6 @@ body {
   width: 80%;
 }
 
-header {
-  -webkit-box-shadow: 0 3px 5px 0 #3d3d3d;
-  -moz-box-shadow: 0 3px 5px 0 #3d3d3d;
-  box-shadow: 0 3px 5px 0 #3d3d3d;
-  text-align: center;
-}
-
-/*Статья*/
 .header-article {
   margin: 2em auto 1em;
   padding: 0.7em 0;
@@ -37,9 +32,9 @@ section > header {
 }
 
 .section-text {
-  -webkit-box-shadow: 0 3px 5px 0 #3d3d3d;
-  -moz-box-shadow: 0 3px 5px 0 #3d3d3d;
-  box-shadow: 0 3px 5px 0 #3d3d3d;
+  -webkit-box-shadow: 0 3px 5px 0 $border;
+  -moz-box-shadow: 0 3px 5px 0 $border;
+  box-shadow: 0 3px 5px 0 $border;
   padding: 1em 1em 0.5em 1em;
 }
 
