@@ -1,6 +1,8 @@
-## Подключение компонента
+# Подключение компонента Menu
 
-Каталог компонента Menu копируем в каталог `src/components/`. Структура каталогов будет примерно следующая:
+## Размещение компонента Menu в проекте
+
+Каталог компонента Menu копируем в каталог `src/components/`. Структура каталогов проекта должна быть примерно следующая:
 
 ```
 |- src
@@ -14,17 +16,20 @@
         header.scss
         README.md
     |- menu
-        data.json
         index.js
         menu.pug
         menu.scss
         README.md
     |+ toggle
     ...
+  |+ data
+  |+ styles
   ...
 ```
 
-Обычно компонент Menu используется в компоненте Header. Тогда в скрипт компонента Header `src/components/header/index.js` импортируем скрипт `src/components/menu/index.js` компонента Menu:
+## Подключение компонента Menu
+
+Обычно компонент Menu используется в компоненте Header. Тогда в скрипт `src/components/header/index.js` компонента Header импортируем скрипт `src/components/menu/index.js` компонента Menu:
 
 **src/components/header/index.js**
 
@@ -34,7 +39,7 @@ import '../menu';
 import './header.scss';
 ```
 
-В шаблон компонента Header `src/components/header/header.pug` с помощью `include` включаем шаблон компонента Menu `src/components/menu/menu.pug` и в нужном месте вызываем миксин `+menu()`:
+В миксин `src/components/header/header.pug` компонента Header с помощью `include` включаем миксин `src/components/menu/menu.pug` компонента Menu и в нужном месте вызываем этот миксин `+menu()`:
 
 **src/components/header/header.pug**
 
@@ -50,3 +55,23 @@ mixin header(options = {})
 
   +menu()
 ```
+
+## Подключение стилей
+
+Для подключения файла стилей `menu.scss` компонента Menu к файлу стилей `src/styles/variables.scss`, в котором определены переменные проекта, в файле `menu.scss` используется импорт
+
+```scss
+@import '../../styles/variables';
+```
+
+Если структура проекта отличается от указанного выше, то правим путь данного импорта.
+
+## Получение данных
+
+Для проекта подразумевается, что данные для меню хранятся в файле `src/data/menu.json`. Для получения данных из этого файла в файле `src/components/menu/menu.pug` компонента Menu используется строка
+
+```pug
+- const menu = require('./data/menu.json')
+```
+
+Если структура проекта отличается от указанного выше, то правим путь данного запроса.
