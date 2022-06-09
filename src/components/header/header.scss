@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 header {
   -webkit-box-shadow: 0 3px 5px 0 #3d3d3d;
   -moz-box-shadow: 0 3px 5px 0 #3d3d3d;
@@ -28,13 +30,13 @@ header {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: $xl) {
   .content {
     width: 95%;
   }
 }
 
-@media (max-width: 845px) {
+@media (max-width: $md) {
   .header__content {
     flex-direction: column;
   }

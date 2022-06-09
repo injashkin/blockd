@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .footer {
   height: 8em;
   background-color: #b1b1b1;
@@ -25,7 +27,7 @@
   margin-top: 1em;
 }
 
-@media (max-width: 845px) {
+@media (max-width: $md) {
   .footer {
     height: 13em;
   }
