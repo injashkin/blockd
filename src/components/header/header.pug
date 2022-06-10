@@ -13,7 +13,7 @@ mixin header(options = {})
           img(src=require('./images/logo-blok-v-djiginke-mobil.png') alt='Блок в Джигинке')
       .header__location 
         .header__address='Анапский район, с. Джигинка, ул. Асфальтная'
-        .header__email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
+        a.header__email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
       .header__contacts 
         a.header__phone(href='tel:+79849999355')= '+7(984)9999-3-55'
         a.header__phone(href='tel:+79180664040')= '+7(918)066-40-40'    

@@ -46,30 +46,35 @@ img {
   max-width: 100%;
 }
 
-/*настройки для всех телефонных номеров*/
-a[href^='tel:'] {
-  text-decoration: none;
-  font-size: 1.5em;
-}
+a {
+  &:hover {
+    background-color: $background-hover;
+  }
 
-/*
-добавление к телефонным номерам иконки телефона
-справочник по символам Юникода https://unicode-table.com/ru/  
-*/
-a[href^='tel:']:before {
-  content: '\2706';
-  margin-right: 0.5em;
-}
+  &[href^='tel:'] {
+    text-decoration: none;
+    font-size: 1.5em;
+  }
 
-a[href^='mailto:']:before {
-  content: '\1f4e7';
-  margin-right: 0.5em;
-}
+  /*
+  добавление к телефонным номерам иконки телефона
+  справочник по символам Юникода https://unicode-table.com/ru/  
+  */
+  &[href^='tel:']:before {
+    content: '\2706';
+    margin-right: 0.5em;
+  }
 
-a[href^='mailto:'] {
-  text-decoration: none;
-  font-size: 1.5em;
-  margin-top: 0.5em;
+  &[href^='mailto:']:before {
+    content: '\1f4e7';
+    margin-right: 0.5em;
+  }
+
+  &[href^='mailto:'] {
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-top: 0.5em;
+  }
 }
 
 /* МЕДИАЗАПРОСЫ */

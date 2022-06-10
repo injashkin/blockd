@@ -8,6 +8,10 @@ header {
 
   & a {
     color: $text;
+
+    &[href^='/']:hover {
+      background-color: $background-header;
+    }
   }
 }
 
