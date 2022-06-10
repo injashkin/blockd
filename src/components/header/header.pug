@@ -3,19 +3,21 @@ include ../menu/menu
 
 mixin header(options = {})
 
+  - const data = require('./data/data.json')
+
   header.header
     .header__content.content
       .header__logo 
-        a(href='/' title='Блок в Джигинке')
-          img(src=require('./images/logo-blok-v-djiginke.png') alt='Блок в Джигинке')
+        a(href='/' title=data.logo_title)
+          img(src=require(`./images/${data.logo_file}`) alt=data.logo_img_alt)
       .header__logo_mobile
-        a(href='/' title='Блок в Джигинке')
-          img(src=require('./images/logo-blok-v-djiginke-mobil.png') alt='Блок в Джигинке')
+        a(href='/' title=data.logo_title)
+          img(src=require(`./images/${data.logo_file_mobile}`) alt=data.logo_img_alt)
       .header__location 
-        .header__address='Анапский район, с. Джигинка, ул. Асфальтная'
-        a.header__email(href='mailto:9999355@mail.ru')= '9999355@mail.ru'
+        .header__address=data.company_address
+        a.header__email(href=`mailto:${data.email}`)= data.email
       .header__contacts 
-        a.header__phone(href='tel:+79849999355')= '+7(984)9999-3-55'
-        a.header__phone(href='tel:+79180664040')= '+7(918)066-40-40'    
+        a.header__phone(href=`tel:${data.phone1}`)= data.phone1
+        a.header__phone(href=`tel:${data.phone2}`)= data.phone2    
     .header__menu
       +menu()
