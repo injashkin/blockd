@@ -1,0 +1,29 @@
+include ../../components/header/header
+include ../../components/footer/footer
+
+- 
+  const data = require(`../../data/data.json`)
+  const {yandex_verification, default_title, default_description, default_keywords} = data
+
+block variables
+
+doctype html
+html(lang= 'ru')
+  head
+    meta(charset= 'utf-8')
+    meta(name= 'viewport' content= 'width=device-width, initial-scale=1')
+    meta(name= 'yandex-verification' content= yandex_verification)
+    meta(name= 'keywords' content= keywords ? keywords : default_keywords)
+    meta(name= 'description' content= description ? description : default_description)
+    title= title ? title : default_title
+
+  body
+    include ../../yandex-metrika.html
+
+    block header
+      +header()
+  
+    block main
+          
+    block footer
+      +footer()
