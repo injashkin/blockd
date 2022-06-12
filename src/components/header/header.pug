@@ -2,21 +2,23 @@ include ../menu/menu
 
 mixin header(options = {})
 
-  - const data = require('./data/data.json')
+  - 
+    const data = require('./data/data.json')
+    const {logo_title, logo_file, logo_file_mobile, logo_img_alt, company_address, email, phone1, phone2} = data
 
   header.header
     .header__content.content
       .header__logo 
-        a(href='/' title=data.logo_title)
-          img(src=require(`./images/${data.logo_file}`) alt=data.logo_img_alt)
+        a(href='/' title=logo_title)
+          img(src=require(`./images/${logo_file}`) alt=logo_img_alt)
       .header__logo_mobile
-        a(href='/' title=data.logo_title)
-          img(src=require(`./images/${data.logo_file_mobile}`) alt=data.logo_img_alt)
+        a(href='/' title=logo_title)
+          img(src=require(`./images/${logo_file_mobile}`) alt=logo_img_alt)
       .header__location 
-        .header__address=data.company_address
-        a.header__email(href=`mailto:${data.email}`)= data.email
+        .header__address=company_address
+        a.header__email(href=`mailto:${data.email}`)=email
       .header__contacts 
-        a.header__phone(href=`tel:${data.phone1}`)= data.phone1
-        a.header__phone(href=`tel:${data.phone2}`)= data.phone2    
+        a.header__phone(href=`tel:${data.phone1}`)=phone1
+        a.header__phone(href=`tel:${data.phone2}`)=phone2    
     .header__menu
       +menu()

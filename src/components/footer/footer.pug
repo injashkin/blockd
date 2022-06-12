@@ -1,16 +1,18 @@
 mixin footer(option = {})
 
-  - const data = require('./data/data.json')
+  - 
+    const data = require('./data/data.json')
+    const {phone1, phone2, company_address, email, logo_title} = data
 
   footer.footer 
     .footer-content.content 
       .footer-contacts 
-        a.footer-phone(href=`tel:${data.phone1}`)= data.phone1
-        a.footer-phone(href=`tel:${data.phone2}`)= data.phone2 
+        a.footer-phone(href=`tel:${data.phone1}`)=phone1
+        a.footer-phone(href=`tel:${data.phone2}`)=phone2 
       .footer-location 
-        .footer-address=data.company_address
-        a.footer-email(href=`mailto:${data.email}`)=data.email
+        .footer-address=company_address
+        a.footer-email(href=`mailto:${data.email}`)=email
       .footer-copyright 
-        .copyright=`${data.logo_title} © 2020`
+        .copyright=`${logo_title} © 2020`
         .developer 
           a(href='http://jinv.ru' target='_blank')='Разработка сайта jinv.ru'

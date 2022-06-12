@@ -2,15 +2,19 @@ include ./components/header/header
 include ./components/gallery/gallery
 include ./components/footer/footer
 
+- 
+  const data = require(`./data/data.json`)
+  const {yandex_verification, keywords, description, head_title} = data
+
 doctype html
 html(lang= 'ru')
   head
     meta(charset= 'utf-8')
     meta(name= 'viewport' content= 'width=device-width, initial-scale=1')
-    meta(name= 'yandex-verification' content= 'cd37240a4230d2ac')
-    meta(name= 'keywords' content= 'блок, строительный, керамзитовый, керамзитобетонный, муровой, стеновой, Джигинка')
-    meta(name= 'description' content= 'Производим в Джигинке блоки стеновые - муровые, керомзитобетонные и керомзитовые разных размеров. Доставка. Качество и цены производителя. Закажите прямо сейчас!')
-    title= 'Блок стеновой строительный - керамзитовый, керамзитобетонный, муравой в Джигинке'
+    meta(name= 'yandex-verification' content=yandex_verification)
+    meta(name= 'keywords' content=keywords)
+    meta(name= 'description' content=description)
+    title=head_title
 
   body
     include yandex-metrika.html
