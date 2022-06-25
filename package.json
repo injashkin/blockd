@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "webpack serve --open  --mode development",
+    "help": "rollup --help",
+    "clean": "rimraf dist tmp",
+    "pug": "pug --pretty src/pages/home/index.pug -o dist",
+    "watch:pug": "pug -w --pretty src/pages/home/index.pug -o dist",
+    "sass": "node-sass src/pages/home/index.scss -o tmp",
+    "watch:sass": "node-sass -w src/pages/home/index.scss -o tmp",
+    "watch:post": "postcss -w tmp/index.css -d dist -u postcss-preset-env",
+    "watch:serve": "browser-sync dist -w",
+    "watch:rollup": "rollup --watch -c rollup.config.js",
+    "dev": "npm-run-all clean pug sass -p watch:*",
+    "build": "echo \"There's nothing yet, but you can contribute\" && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,19 +29,14 @@
   },
   "homepage": "https://github.com/injashkin/blockd#readme",
   "devDependencies": {
-    "css-loader": "^6.7.1",
-    "html-webpack-plugin": "^5.5.0",
-    "jstransformer-markdown-it": "^2.1.0",
-    "mini-css-extract-plugin": "^2.6.0",
+    "browser-sync": "^2.27.10",
     "node-sass": "^7.0.1",
-    "postcss-loader": "^7.0.0",
-    "postcss-preset-env": "^7.6.0",
-    "pug": "^3.0.2",
-    "pug-loader": "^2.4.0",
-    "sass-loader": "^13.0.0",
-    "style-loader": "^3.3.1",
-    "webpack": "^5.72.1",
-    "webpack-cli": "^4.9.2",
-    "webpack-dev-server": "^4.9.0"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "postcss-preset-env": "^7.7.1",
+    "pug-cli": "^1.0.0-alpha6",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.75.7"
   }
 }

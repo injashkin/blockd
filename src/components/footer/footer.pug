@@ -1,8 +1,8 @@
-mixin footer(option = {})
+mixin footer(options = {})
 
-  - 
-    const data = require('../../data/data.json')
-    const {phone1, phone2, company_address, email, logo_title} = data
+  - const {phone1, phone2, company_address, email, logo_title} = options
+    //-const data = require('../../data/data.json')
+    
 
   footer.footer 
     .footer-content.content 

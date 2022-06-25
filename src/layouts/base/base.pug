@@ -1,9 +1,24 @@
 include ../../components/header/header
 include ../../components/footer/footer
 
-- 
-  const data = require(`../../data/data.json`)
-  const {yandex_verification, default_title, default_description, default_keywords} = data
+-
+  let data = {
+    default_keywords: "блок, строительный, керамзитовый, керамзитобетонный, муровой, стеновой, Джигинка",
+    default_description: "Производим в Джигинке блоки - муровые, керомзитобетонные и керомзитовые разных размеров. Доставка. Качество и цены производителя. Закажите прямо сейчас!",
+    default_title: "Производим блок стеновой строительный - керамзитовый, керамзитобетонный, муравой в Джигинке",
+    yandex_verification: "cd37240a4230d2ac",
+    phone1: "+7(999)9999-9-99",
+    phone2: "+7(999)888-88-88",
+    logo_title: "Блок в Джигинке",
+    logo_img_alt: "Блок в Джигинке",
+    logo_file: "logo-blok-v-djiginke.png",
+    logo_file_mobile: "logo-blok-v-djiginke-mobile.png",
+    company_address: "Анапский район, с. Джигинка, ул. Асфальтная",
+    email: "info@dblock.ru"
+  }
+
+//- const data = require(`../../data/data.json`)
+- const {yandex_verification, default_title, default_description, default_keywords} = data
 
 block variables
 
@@ -11,18 +26,20 @@ doctype html
 html(lang= 'ru')
   head
     meta(charset= 'utf-8')
-    meta(name= 'viewport' content= 'width=device-width, initial-scale=1')
+    meta(name= 'viewport' content= 'width=device-width, initial-scale=1')    
     meta(name= 'yandex-verification' content= yandex_verification)    
     meta(content= description ? description : default_description name= 'description')
+    link(rel='stylesheet' href='index.css')
+    script(defer src='index.js')
     title= title ? title : default_title
 
   body
     include ../../yandex-metrika.html
 
     block header
-      +header()
+      +header(data)
   
     block main
           
     block footer
-      +footer()
+      +footer(data)

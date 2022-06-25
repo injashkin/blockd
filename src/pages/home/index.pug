@@ -3,9 +3,8 @@ include ../../components/gallery/gallery
 include ../../components/slider/slider
 
 block variables
-  -     
-    const title = 'Купить блок керамзитовый муровой строительный в Юровке г. Анапа с доставкой'
-    const description = 'Наша компания изготавливает строительные блоки ФБС, блоки муровые стеновые, керамзитоблоки.'
+  - const title = 'Купить блок керамзитовый муровой строительный в Юровке г. Анапа с доставкой'
+  - const description = 'Наша компания изготавливает строительные блоки ФБС, блоки муровые стеновые, керамзитоблоки.'
     
 
 block main
@@ -25,4 +24,4 @@ block main
         h2 
           a(name='delivery')= 'Доставка блока покупателям'
       .section-text 
-        include:markdown-it ../../data/delivery.md
+        //-include:markdown-it ../../data/delivery.md

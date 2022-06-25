@@ -1,10 +1,61 @@
+
+
 mixin gallery()
 
-  - const products = require('../../data/products.json')
+  - 
+    let cards = [
+      {
+        img: "block-m12.jpg", 
+        desc: "Блок стеновой муровой 12х20х40", 
+        price: "Цена: 20 руб"
+      },
+      {
+        img: "block-m20.jpg",
+        desc: "Блок стеновой муровой 20х20х40",
+        price: "Цена:26 руб"
+      },
+      {
+        img: "block-k32.jpg",
+        desc: "Блок стеновой муровой 32х20х40",
+        price: "Цена: 36 руб"
+      },
+      {
+        img: "block-kb12.jpg",
+        desc: "Блок стеновой керамзитобетонный 12х20х40",
+        price: "Цена: 23 руб"
+      },
+      {
+        img: "block-k20.jpg",
+        desc: "Блок стеновой керамзитобетонный 20х20х40",
+        price: "Цена: 33 руб"
+      },
+      {
+        img: "block-k32.jpg",
+        desc: "Блок стеновой керамзитобетонный 32х20х40",
+        price: "Цена: 45 руб"
+      },
+      {
+        img: "block-k12.jpg",
+        desc: "Блок стеновой керамзитовый 12х20х40",
+        price: "Цена: 28 руб"
+      },
+      {
+        img: "block-k20.jpg",
+        desc: "Блок стеновой керамзитовый 20х20х40",
+        price: "Цена: 42 руб"
+      },
+      {
+        img: "block-k32.jpg",
+        desc: "Блок стеновой керамзитовый 32х20х40",
+        price: "Цена: 54 руб"
+      }
+    ]
+
+  //- const products = require('../../data/products.json')
 
   .gallery
-    each card in products.cards
+    each card in cards
       .prod-card 
-        img(src=require(`../../data/images/${card.img}`) alt=card.desc)        
+        img(src=`../../data/images/${card.img}` alt=card.desc)        
         h3= card.desc
         p= card.price

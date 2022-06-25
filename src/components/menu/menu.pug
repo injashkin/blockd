@@ -1,5 +1,22 @@
+-
+    let items = [
+    {
+      "href": "#block",
+      "text": "Блок"
+    },
+    {
+      "href": "#delivery",
+      "text": "Доставка"
+    },
+    {
+      "href": "#contacts",
+      "text": "Контакты"
+    }
+  ]
+
 mixin menu(options = {})
-  - const menu = require('../../data/menu.json')    
+  //- let {href, text} = items
+  //- const menu = require('../../data/menu.json')    
 
   nav.menu(aria-label='Главное меню')    
     .content 
@@ -7,6 +24,6 @@ mixin menu(options = {})
       label(class='menu__btn' for='menu__toggle')
         span    
       ul.menu__box
-        each item in menu.items
+        each item in items
           li
             a.menu__item(href=item.href)= item.text
