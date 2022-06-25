@@ -9,10 +9,10 @@ mixin header(options = {})
     .header__content.content
       .header__logo 
         a(href='/' title= logo_title)
-          img(src=`../../images/${logo_file}` alt= logo_img_alt)
+          img(src=`./images/${logo_file}` alt= logo_img_alt)
       .header__logo_mobile
         a(href='/' title=logo_title)
-          img(src=`../../images/${logo_file_mobile}` alt=logo_img_alt)
+          img(src=`./images/${logo_file_mobile}` alt=logo_img_alt)
       .header__location 
         .header__address=data.company_address
         a.header__email(href=`mailto:${data.email}`)=data.email

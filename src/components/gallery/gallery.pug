@@ -56,6 +56,6 @@ mixin gallery()
   .gallery
     each card in cards
       .prod-card 
-        img(src=`../../data/images/${card.img}` alt=card.desc)        
+        img(src=`./images/${card.img}` alt=card.desc)        
         h3= card.desc
         p= card.price

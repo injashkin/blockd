@@ -4,16 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "help": "rollup --help",
+    "help": "imagemin --help",
     "clean": "rimraf dist tmp",
     "pug": "pug --pretty src/pages/home/index.pug -o dist",
     "watch:pug": "pug -w --pretty src/pages/home/index.pug -o dist",
     "sass": "node-sass src/pages/home/index.scss -o tmp",
     "watch:sass": "node-sass -w src/pages/home/index.scss -o tmp",
     "watch:post": "postcss -w tmp/index.css -d dist -u postcss-preset-env",
+    "img": "imagemin src/pages/**/images/* src/images/* -o dist/images",
     "watch:serve": "browser-sync dist -w",
     "watch:rollup": "rollup --watch -c rollup.config.js",
-    "dev": "npm-run-all clean pug sass -p watch:*",
+    "dev": "npm-run-all clean pug sass img -p watch:*",
     "build": "echo \"There's nothing yet, but you can contribute\" && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +31,7 @@
   "homepage": "https://github.com/injashkin/blockd#readme",
   "devDependencies": {
     "browser-sync": "^2.27.10",
+    "imagemin-cli": "^7.0.0",
     "node-sass": "^7.0.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.14",
