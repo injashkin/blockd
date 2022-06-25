@@ -1,0 +1,289 @@
+.wrap {
+  height: auto !important;
+  height: 100%;
+  min-height: 100%;
+
+  padding-top: 1px;
+  width: auto;
+  max-width: 100%;
+  margin: 0px auto;
+  position: relative;
+}
+
+.slider {
+  overflow: hidden;
+  width: 93.75%;
+  margin: 0 auto;
+  margin-top: 20px;
+  position: relative;
+  padding: 5px;
+  background-color: #ddd;
+  position: relative;
+}
+
+/*=============СЛАЙДЫ===================*/
+.img1 {
+  position: relative;
+  max-width: 100%;
+  transition-property: opacity, z-index;
+  transition-duration: 2s;
+  opacity: 1; /*не прозрачная только первая картинка*/
+  z-index: 1;
+}
+
+.img2,
+.img3,
+.img4,
+.img5 {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  transition-property: opacity, z-index;
+  transition-duration: 2s;
+  opacity: 0;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/*============Анимация слайдов=======================*/
+.img1 {
+  animation: imgAnim 30s linear infinite;
+}
+
+.img2 {
+  animation: imgAnim 30s linear 6s infinite;
+}
+
+.img3 {
+  animation: imgAnim 30s linear 12s infinite;
+}
+
+.img4 {
+  animation: imgAnim 30s linear 18s infinite;
+}
+
+.img5 {
+  animation: imgAnim 30s linear 24s infinite;
+}
+
+@keyframes imgAnim {
+  0% {
+    opacity: 0;
+    z-index: 5;
+  }
+  8% {
+    opacity: 1;
+    z-index: 5;
+  }
+  17% {
+    opacity: 1;
+    z-index: 5;
+  }
+  25% {
+    opacity: 0;
+    z-index: 5;
+  }
+  100% {
+    opacity: 0;
+    z-index: 5;
+  }
+}
+
+/*=====ОПИСАНИЕ=========================================*/
+.discript1,
+.discript2,
+.discript3,
+.discript4,
+.discript5 {
+  position: absolute;
+  width: 35%;
+  background-color: rgba(0, 0, 0, 0.56);
+  bottom: 15px;
+  padding: 10px;
+}
+
+.images h3 {
+  color: #fff;
+  margin: 0;
+  margin-bottom: 3px;
+  font-family: Times New Roman;
+}
+
+.images p {
+  color: #fff;
+  margin: 0;
+  font-size: 14px;
+  font-family: Times New Roman;
+}
+
+/*========пауза в анимации при наведении на слайд=========*/
+
+.slider:hover .images {
+  animation-play-state: paused;
+}
+
+/*===КНОПКИ КРУГЛЯШИ===============*/
+
+.but1,
+.but2,
+.but3,
+.but4,
+.but5 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: transparent;
+  bottom: 25px;
+  left: 50%;
+  right: 10px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+  outline: none;
+}
+
+.but1 {
+  margin-left: -50px;
+}
+
+.but2 {
+  margin-left: -25px;
+}
+
+.but4 {
+  margin-left: 25px;
+}
+
+.but5 {
+  margin-left: 50px;
+}
+
+.round1,
+.round2,
+.round3,
+.round4,
+.round5 {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  bottom: 25px;
+  left: 50%;
+  right: 10px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: -1px -1px 1px 1px rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+  outline: none;
+}
+
+.round1 {
+  margin-left: -50px;
+}
+
+.round2 {
+  margin-left: -25px;
+}
+
+.round4 {
+  margin-left: 25px;
+}
+
+.round5 {
+  margin-left: 50px;
+}
+
+/*==============Активация при анимации кружка навигации*=================*/
+
+.round1 {
+  animation: butAnim 30s linear infinite;
+}
+
+.round2 {
+  animation: butAnim 30s linear 6s infinite;
+}
+
+.round3 {
+  animation: butAnim 30s linear 12s infinite;
+}
+
+.round4 {
+  animation: butAnim 30s linear 18s infinite;
+}
+
+.round5 {
+  animation: butAnim 30s linear 24s infinite;
+}
+
+@keyframes butAnim {
+  0% {
+    background-color: #fff;
+  }
+  8% {
+    background-color: #8699a4;
+  }
+  17% {
+    background-color: #8699a4;
+  }
+  25% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+.slider:hover .nav {
+  animation-play-state: paused;
+}
+/*================ДЕЙСТВИя================*/
+.but1:focus ~ .images,
+.but2:focus ~ .images,
+.but3:focus ~ .images,
+.but4:focus ~ .images,
+.but5:focus ~ .images {
+  animation: none;
+}
+
+.but1:focus ~ .nav,
+.but2:focus ~ .nav,
+.but3:focus ~ .nav,
+.but4:focus ~ .nav,
+.but5:focus ~ .nav {
+  animation: none;
+}
+
+.but1:focus ~ .img1,
+.but2:focus ~ .img2,
+.but3:focus ~ .img3,
+.but4:focus ~ .img4,
+.but5:focus ~ .img5 {
+  opacity: 1;
+  z-index: 15;
+}
+
+.but1:focus,
+.but2:focus,
+.but3:focus,
+.but4:focus,
+.but5:focus {
+  background-color: #8699a4;
+}
+
+/*==========МЕДИАЗАПРОСЫ=================*/
+@media only screen and (max-width: 740px) {
+  .images p {
+    display: none;
+  }
+  .images h3 {
+    font-size: 14px;
+    text-align: center;
+  }
+}
