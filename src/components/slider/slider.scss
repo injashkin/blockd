@@ -14,20 +14,28 @@
   overflow: hidden;
   width: 100%;
   margin: 0 auto;
-  margin-top: 20px;
   position: relative;
-  padding: 5px;
   background-color: #ddd;
   position: relative;
+  padding-bottom: 5px;
 }
 
 /*=============СЛАЙДЫ===================*/
-.img1 {
-  position: relative;
-  max-width: 100%;
+
+.images {
+  top: 5px;
+  left: 0;
+  right: 0;
+  bottom: 5px;
   transition-property: opacity, z-index;
   transition-duration: 2s;
-  opacity: 1; /*не прозрачная только первая картинка*/
+}
+
+.img1 {
+  margin-bottom: 5px;
+  position: relative;
+  max-width: 100%;
+  opacity: 1; // не прозрачная только первая картинка
   z-index: 1;
 }
 
@@ -36,11 +44,6 @@
 .img4,
 .img5 {
   position: absolute;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  transition-property: opacity, z-index;
-  transition-duration: 2s;
   opacity: 0;
 }
 
