@@ -1,4 +1,4 @@
-.wrap {
+.slider-wrap {
   height: auto !important;
   height: 100%;
   min-height: 100%;
@@ -12,7 +12,7 @@
 
 .slider {
   overflow: hidden;
-  width: 93.75%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
   position: relative;
@@ -44,9 +44,11 @@
   opacity: 0;
 }
 
-img {
-  max-width: 100%;
+.slider__img {
+  height: 100%;
+  width: 100%;
   vertical-align: middle;
+  object-fit: cover;
 }
 
 /*============Анимация слайдов=======================*/
@@ -94,30 +96,28 @@ img {
 }
 
 /*=====ОПИСАНИЕ=========================================*/
-.discript1,
-.discript2,
-.discript3,
-.discript4,
-.discript5 {
+.descript1,
+.descript2,
+.descript3,
+.descript4,
+.descript5 {
   position: absolute;
   width: 35%;
-  background-color: rgba(0, 0, 0, 0.56);
-  bottom: 15px;
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 30%;
+  left: 10%;
+  padding: 1em;
 }
 
 .images h3 {
   color: #fff;
   margin: 0;
-  margin-bottom: 3px;
-  font-family: Times New Roman;
+  margin-bottom: 1em;
 }
 
 .images p {
   color: #fff;
   margin: 0;
-  font-size: 14px;
-  font-family: Times New Roman;
 }
 
 /*========пауза в анимации при наведении на слайд=========*/
@@ -245,6 +245,7 @@ img {
 }
 
 /*================ДЕЙСТВИя================*/
+
 .but1:focus ~ .images,
 .but2:focus ~ .images,
 .but3:focus ~ .images,

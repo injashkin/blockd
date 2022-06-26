@@ -5,10 +5,38 @@ include ../../components/slider/slider
 block variables
   - const title = 'Купить блок керамзитовый муровой строительный в Юровке г. Анапа с доставкой'
   - const description = 'Наша компания изготавливает строительные блоки ФБС, блоки муровые стеновые, керамзитоблоки.'
+  -
+    let slides = [
+      {
+        img: "./images/delivery.jpg",
+        title: "Доставка",
+        descript: "Осуществим доставку своим транспортом"
+      },
+      {
+        img: "https://i.1.creatium.io/e3/5a/a5/d091c3e4c85749a4c762312a20cb052981/f4-003.jpg",
+        title: "Предоплата",
+        descript: "Мы работаем без предоплаты. Вы оплачиваете всю сумму при получении товара"
+      },
+      {
+        img: "https://st14.stblizko.ru/images/slides/001/102/119_big.png",
+        title: "Опт и розница",
+        descript: "Отгружаем товары любыми партиями"
+      },
+      {
+        img: "./images/storage.jpg",
+        title: "10 лет на рынке",
+        descript: "Отличное качество, большой опыт работы"
+      },
+      {
+        img: "https://st14.stblizko.ru/images/slides/001/104/945_big.png",
+        title: "Документация",
+        descript: "Полная документация на товар (накладные, чеки)"
+      }
+    ]
     
 
 block main
-  +slider()
+  +slider({slides})
   header.header-article.content 
     h1= 'Блок строительный в Джигинке'      
   article.content       
