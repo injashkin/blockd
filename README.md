@@ -31,6 +31,36 @@ npm run dev
 npm run build
 ```
 
+## Структура проекта
+
+```
+|-src
+  |-assets
+    |+favicons
+    |+fonts
+    |-static
+      .htaccess
+      robots.txt
+  |+components
+  |+data
+  |+images
+  |+layouts
+  |-pages
+    |+error
+    |-home
+      |+images
+      index.js
+      index.pug
+      index.scss
+.gitignore
+package-lock.json
+package.json
+README.md
+rollup.config.js
+```
+
+- **src/assets/static** - здесь хранятся файлы, которые должны быть размещены в корне сайта без какой-либо обработки.
+
 ## Используемые технологии
 
 В проекте используются значки Юникода. Справочник по символам Юникода: https://unicode-table.com/ru/
