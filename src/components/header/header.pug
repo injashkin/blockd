@@ -19,5 +19,4 @@ mixin header(options = {})
       .header__contacts 
         a.header__phone(href=`tel:${data.phone1}`)=data.phone1
         a.header__phone(href=`tel:${data.phone2}`)=data.phone2    
-    .header__menu
-      +menu()
+    +menu()

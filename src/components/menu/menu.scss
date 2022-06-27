@@ -1,7 +1,19 @@
 @import '../../layouts/variables';
 
 .menu {
+  overflow: hidden;
   background-color: $background;
+  z-index: 10000;
+}
+
+.js-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.js-empty {
+  padding-top: 2em;
 }
 
 .menu__box {
@@ -20,11 +32,11 @@
 
 .menu__item {
   display: block;
-  padding: 1em;
+  padding: 0.5em;
 
   color: $text-inverse;
   text-decoration: none;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
 
   &:hover {
@@ -39,7 +51,7 @@
 
 @media (max-width: $xxl) {
   .menu__item {
-    font-size: 1.3em;
+    font-size: 1.1em;
   }
 }
 

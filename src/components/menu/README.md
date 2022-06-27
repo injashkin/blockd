@@ -39,7 +39,7 @@ import '../menu';
 import './header.scss';
 ```
 
-В миксин `src/components/header/header.pug` компонента Header с помощью `include` включаем миксин `src/components/menu/menu.pug` компонента Menu и в нужном месте вызываем этот миксин `+menu()`:
+В миксин `src/components/header/header.pug` компонента Header с помощью `include` включаем миксин компонента Menu и в нужном месте вызываем этот миксин `+menu()`:
 
 **src/components/header/header.pug**
 
@@ -58,7 +58,15 @@ mixin header(options = {})
 
 ## Подключение стилей
 
-Для подключения файла стилей `menu.scss` компонента Menu к файлу стилей `src/styles/variables.scss`, в котором определены переменные проекта, в файле `menu.scss` используется импорт
+Чтобы подключить стили компонента Menu к проекту нужно в файле `src/pages/home/index.scss` сделать импорт стилей Menu:
+
+```scss
+@import '../../components/menu/menu';
+```
+
+Также, нужно в с
+
+`src/styles/variables.scss`, в котором определены переменные проекта, в файле `menu.scss` используется импорт
 
 ```scss
 @import '../../styles/variables';
