@@ -20,5 +20,20 @@ export const menu = function () {
     }
   };
 
+  const offScrollOfBody = () => {
+    let menuToggle = document.querySelector('#menu__toggle');
+
+    const handler = () => {
+      if (menuToggle.checked === true) {
+        document.body.classList.add('off-scroll');
+      } else {
+        document.body.classList.remove('off-scroll');
+      }
+    };
+
+    menuToggle.addEventListener('click', handler);
+  };
+
   sticky();
+  offScrollOfBody();
 };

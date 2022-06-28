@@ -4,6 +4,8 @@
   overflow: hidden;
   background-color: $background;
   z-index: 10000;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 
 .js-sticky {
@@ -37,7 +39,6 @@
   color: $text-inverse;
   text-decoration: none;
   font-size: 1.2em;
-  font-weight: bold;
 
   &:hover {
     color: $text-inverse;
@@ -62,6 +63,10 @@
 }
 
 @media (max-width: $md) {
+  .off-scroll {
+    overflow: hidden;
+  }
+
   .menu__btn {
     display: flex;
     align-items: center;
@@ -120,17 +125,15 @@
   }
 
   .menu__box {
-    display: block;
+    flex-direction: column;
     position: fixed;
     visibility: hidden;
     top: 0;
     left: -100%;
 
     width: 20em;
-    height: 100%;
-
     margin: 0;
-    padding: 5em 0;
+    padding: 3em 0;
 
     text-align: center;
 
@@ -138,20 +141,19 @@
     box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
 
     transition-duration: 0.25s;
+
+    & li {
+      border-right: 0;
+    }
   }
 
   .menu__item {
-    display: block;
     padding: 0.75em 1em;
-
     color: $text;
 
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.25em;
-    font-weight: 600;
+    transition-duration: 0.25s;
 
     text-decoration: none;
-
-    transition-duration: 0.25s;
+    font-size: 1.25em;
   }
 }
