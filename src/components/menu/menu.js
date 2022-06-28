@@ -1,39 +1,26 @@
 export const menu = function () {
-  const sticky = function () {
-    window.onscroll = function () {
-      myFunction();
-    };
+  const menu = document.querySelector('.menu'),
+    boxEmpty = document.createElement('div'),
+    sticky = menu.offsetTop;
 
-    let navbar = document.querySelector('.menu');
-    let boxEmpty = document.createElement('div');
+  const menuToggle = document.querySelector('#menu__toggle');
+
+  const stickTheMenu = () => {
     boxEmpty.classList.add('js-empty');
-    let sticky = navbar.offsetTop;
 
-    function myFunction() {
-      if (window.pageYOffset >= sticky) {
-        navbar.classList.add('js-sticky');
-        navbar.after(boxEmpty);
-      } else {
-        navbar.classList.remove('js-sticky');
-        boxEmpty.remove();
-      }
+    if (window.pageYOffset >= sticky) {
+      menu.classList.add('js-sticky');
+      menu.after(boxEmpty);
+    } else {
+      menu.classList.remove('js-sticky');
+      boxEmpty.remove();
     }
   };
 
   const offScrollOfBody = () => {
-    let menuToggle = document.querySelector('#menu__toggle');
-
-    const handler = () => {
-      if (menuToggle.checked === true) {
-        document.body.classList.add('off-scroll');
-      } else {
-        document.body.classList.remove('off-scroll');
-      }
-    };
-
-    menuToggle.addEventListener('click', handler);
+    document.body.classList.toggle('js-off-scroll');
   };
 
-  sticky();
-  offScrollOfBody();
+  window.addEventListener('scroll', stickTheMenu);
+  menuToggle.addEventListener('click', offScrollOfBody);
 };
