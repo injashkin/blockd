@@ -1,14 +1,13 @@
 export const menu = function () {
   const menu = document.querySelector('.menu'),
     boxEmpty = document.createElement('div'),
-    sticky = menu.offsetTop;
-
-  const menuToggle = document.querySelector('#menu__toggle');
+    menuOffset = menu.offsetTop,
+    menuToggle = document.querySelector('#menu__toggle');
 
   const stickTheMenu = () => {
     boxEmpty.classList.add('js-empty');
 
-    if (window.pageYOffset >= sticky) {
+    if (window.pageYOffset >= menuOffset) {
       menu.classList.add('js-sticky');
       menu.after(boxEmpty);
     } else {
@@ -21,6 +20,14 @@ export const menu = function () {
     document.body.classList.toggle('js-off-scroll');
   };
 
+  const closeMenu = () => {
+    if (menuToggle.checked) {
+      menuToggle.checked = false;
+      offScrollOfBody();
+    }
+  };
+
   window.addEventListener('scroll', stickTheMenu);
   menuToggle.addEventListener('click', offScrollOfBody);
+  document.addEventListener('mouseup', closeMenu);
 };
