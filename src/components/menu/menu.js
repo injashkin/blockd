@@ -44,6 +44,23 @@ export const menu = function () {
     }
   };
 
+  const scrollSmoothly = () => {
+    const anchors = document.querySelectorAll('a[href*="#"]');
+
+    for (let anchor of anchors) {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const id = anchor.getAttribute('href').slice(1);
+
+        document.getElementById(id).scrollIntoView({
+          behavior: 'smooth',
+        });
+      });
+    }
+  };
+
   window.addEventListener('scroll', stickTheMenu);
   document.addEventListener('click', handle);
+  scrollSmoothly();
 };
