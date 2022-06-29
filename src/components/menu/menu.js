@@ -16,18 +16,34 @@ export const menu = function () {
     }
   };
 
+  const onScrollOfBody = () => {
+    document.body.classList.add('js-off-scroll');
+  };
+
   const offScrollOfBody = () => {
-    document.body.classList.toggle('js-off-scroll');
+    document.body.classList.remove('js-off-scroll');
   };
 
   const closeMenu = () => {
+    menuToggle.checked = false;
+  };
+
+  const handle = (e) => {
+    if (
+      e.target.tagName !== 'SPAN' &&
+      e.target !== menuToggle &&
+      menuToggle.checked
+    ) {
+      closeMenu();
+    }
+
     if (menuToggle.checked) {
-      menuToggle.checked = false;
+      onScrollOfBody();
+    } else {
       offScrollOfBody();
     }
   };
 
   window.addEventListener('scroll', stickTheMenu);
-  menuToggle.addEventListener('click', offScrollOfBody);
-  document.addEventListener('mouseup', closeMenu);
+  document.addEventListener('click', handle);
 };
