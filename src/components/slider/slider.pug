@@ -12,7 +12,7 @@ mixin slider(options = {})
         .slider__box(class=`but${num}` tabindex="1")
         .nav(class=`round${num}`)
         .images(class=`img${num}`)
-          img.slider__img(src= img)
+          img.slider__img(src= img alt= descript)
           div(class=`descript${num}`)
             h3= title
             p= descript

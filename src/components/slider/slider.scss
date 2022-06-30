@@ -54,50 +54,6 @@
   object-fit: cover;
 }
 
-/*============Анимация слайдов=======================*/
-.img1 {
-  animation: imgAnim 30s linear infinite;
-}
-
-.img2 {
-  animation: imgAnim 30s linear 6s infinite;
-}
-
-.img3 {
-  animation: imgAnim 30s linear 12s infinite;
-}
-
-.img4 {
-  animation: imgAnim 30s linear 18s infinite;
-}
-
-.img5 {
-  animation: imgAnim 30s linear 24s infinite;
-}
-
-@keyframes imgAnim {
-  0% {
-    opacity: 0;
-    z-index: 5;
-  }
-  8% {
-    opacity: 1;
-    z-index: 5;
-  }
-  17% {
-    opacity: 1;
-    z-index: 5;
-  }
-  25% {
-    opacity: 0;
-    z-index: 5;
-  }
-  100% {
-    opacity: 0;
-    z-index: 5;
-  }
-}
-
 /*=====ОПИСАНИЕ=========================================*/
 .descript1,
 .descript2,
@@ -106,10 +62,11 @@
 .descript5 {
   position: absolute;
   width: 35%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   top: 30%;
   left: 10%;
   padding: 1em;
+  border-radius: 1em;
 }
 
 .images h3 {
@@ -121,12 +78,6 @@
 .images p {
   color: #fff;
   margin: 0;
-}
-
-/*========пауза в анимации при наведении на слайд=========*/
-
-.slider:hover .images {
-  animation-play-state: paused;
 }
 
 /*===КНОПКИ КРУГЛЯШИ===============*/
@@ -203,51 +154,7 @@
   margin-left: 50px;
 }
 
-/*==============Активация при анимации кружка навигации*=================*/
-
-.round1 {
-  animation: butAnim 30s linear infinite;
-}
-
-.round2 {
-  animation: butAnim 30s linear 6s infinite;
-}
-
-.round3 {
-  animation: butAnim 30s linear 12s infinite;
-}
-
-.round4 {
-  animation: butAnim 30s linear 18s infinite;
-}
-
-.round5 {
-  animation: butAnim 30s linear 24s infinite;
-}
-
-@keyframes butAnim {
-  0% {
-    background-color: #fff;
-  }
-  8% {
-    background-color: #8699a4;
-  }
-  17% {
-    background-color: #8699a4;
-  }
-  25% {
-    background-color: #fff;
-  }
-  100% {
-    background-color: #fff;
-  }
-}
-
-.slider:hover .nav {
-  animation-play-state: paused;
-}
-
-/*================ДЕЙСТВИя================*/
+/*================ДЕЙСТВИЯ================*/
 
 .but1:focus ~ .images,
 .but2:focus ~ .images,
@@ -282,7 +189,6 @@
   background-color: #8699a4;
 }
 
-/*==========МЕДИАЗАПРОСЫ=================*/
 @media only screen and (max-width: 740px) {
   .images p {
     display: none;
@@ -291,4 +197,102 @@
     font-size: 14px;
     text-align: center;
   }
+}
+
+/*============Анимация слайдов=======================*/
+
+$duration: 60s;
+$delay: 12s;
+
+.img1 {
+  animation: imgAnim $duration linear infinite;
+}
+
+.img2 {
+  animation: imgAnim $duration linear $delay infinite;
+}
+
+.img3 {
+  animation: imgAnim $duration linear $delay * 2 infinite;
+}
+
+.img4 {
+  animation: imgAnim $duration linear $delay * 3 infinite;
+}
+
+.img5 {
+  animation: imgAnim $duration linear $delay * 4 infinite;
+}
+
+@keyframes imgAnim {
+  0% {
+    opacity: 0;
+    z-index: 5;
+  }
+  5% {
+    opacity: 1;
+    z-index: 5;
+  }
+  17% {
+    opacity: 1;
+    z-index: 5;
+  }
+  25% {
+    opacity: 0;
+    z-index: 5;
+  }
+  100% {
+    opacity: 0;
+    z-index: 5;
+  }
+}
+
+/*==============Активация при анимации кружка навигации*=================*/
+
+.round1 {
+  animation: butAnim $duration linear infinite;
+}
+
+.round2 {
+  animation: butAnim $duration linear $delay infinite;
+}
+
+.round3 {
+  animation: butAnim $duration linear $delay * 2 infinite;
+}
+
+.round4 {
+  animation: butAnim $duration linear $delay * 3 infinite;
+}
+
+.round5 {
+  animation: butAnim $duration linear $delay * 4 infinite;
+}
+
+@keyframes butAnim {
+  0% {
+    background-color: #fff;
+  }
+  5% {
+    background-color: #8699a4;
+  }
+  17% {
+    background-color: #8699a4;
+  }
+  25% {
+    background-color: #fff;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+/*========пауза в анимации при наведении на слайд=========*/
+
+.slider:hover .images {
+  animation-play-state: paused;
+}
+
+.slider:hover .nav {
+  animation-play-state: paused;
 }
