@@ -32,6 +32,24 @@
   margin-top: 1em;
 }
 
+.footer-phone2 {
+  position: relative;
+  font-size: 1.2em;
+  text-align: right;
+}
+
+.icon-phone-black {
+  position: absolute;
+  left: 0;
+  background-image: url('svg/phone_black_24dp.svg');
+  width: 24px;
+  height: 24px;
+}
+
+.img-icon-phone-black {
+  width: 24px;
+}
+
 @media (max-width: $md) {
   .footer {
     height: 13em;
