@@ -32,23 +32,25 @@
   margin-top: 1em;
 }
 
-.footer-phone2 {
-  position: relative;
+//====================================
+//===================================
+.phone {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
   font-size: 1.2em;
-  text-align: right;
 }
 
 .icon-phone-black {
-  position: absolute;
-  left: 0;
-  background-image: url('svg/phone_black_24dp.svg');
-  width: 24px;
-  height: 24px;
+  width: 1.2em;
+  height: 1.2em;
 }
 
-.img-icon-phone-black {
-  width: 24px;
+.asd {
+  transform: scale(1.2);
 }
+//====================================
+//===================================
 
 @media (max-width: $md) {
   .footer {

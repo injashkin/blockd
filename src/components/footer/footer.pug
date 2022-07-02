@@ -6,11 +6,11 @@ mixin footer(options = {})
   footer.footer 
     .footer-content.content 
       .footer-contacts#contacts        
-        a.footer-phone(href=`tel:${data.phone1}`)=phone1
-        a.footer-phone(href=`tel:${data.phone2}`)=phone2 
-        a.footer-phone2(href=``)=phone2 
-          span.icon-phone-black
-          //-img.img-icon-phone-black(src='images/phone_black_24dp.svg' alt='Номер телефона')        
+        a.footer-phone(href=`tel:${data.phone1}`)=phone1        
+        a.phone(href='')          
+          svg.icon-phone-black(role='img' title='Позвонить')
+            use.asd(href='svg/sprite.svg#phone_black_24dp')        
+          .footer-phone2=phone2 
       .footer-location 
         .footer-address=company_address
         a.footer-email(href=`mailto:${data.email}`)=email
