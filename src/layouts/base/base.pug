@@ -29,8 +29,11 @@ html(lang= 'ru')
     meta(name= 'viewport' content= 'width=device-width, initial-scale=1')    
     meta(name= 'yandex-verification' content= yandex_verification)    
     meta(content= description ? description : default_description name= 'description')
+
     link(rel='stylesheet' href='index.css')
+    script(defer src='https://code.jquery.com/jquery-3.6.0.min.js')
     script(defer src='index.js')
+
     title= title ? title : default_title
 
   body

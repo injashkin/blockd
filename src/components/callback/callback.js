@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 export const callback = function () {
   $(document).ready(function () {
     var p = $('.window_wrap');

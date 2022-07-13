@@ -33,7 +33,6 @@
   "devDependencies": {
     "browser-sync": "^2.27.10",
     "imagemin-cli": "^7.0.0",
-    "jquery": "^3.6.0",
     "jstransformer-markdown-it": "^2.1.0",
     "mdc-pug": "^3.0.0-beta.5",
     "node-sass": "^7.0.1",
@@ -46,5 +45,8 @@
     "rollup": "^2.75.7",
     "svg-sprite-generator": "^0.0.7",
     "svgo": "^2.8.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0"
   }
 }
