@@ -1,8 +1,9 @@
 mixin icon(name, title, modifier)
-  - title = title || ''
-  - modifier = modifier || ''
+  - 
+    title = title || ''
+    modifier = modifier || ''
 
   if modifier
     - modifier= `--${modifier}`
-  svg(class=`icon icon-${name}${modifier}` role='img' title=title)
+  svg(class=`icon icon__${name}${modifier}` role='img' title=title)
     use.asd(href=`svg/sprite.svg#${name}`)

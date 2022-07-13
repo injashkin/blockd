@@ -18,7 +18,7 @@ block variables
         descript: "Мы работаем без предоплаты. Вы оплачиваете всю сумму при получении товара"
       },
       {
-        img: "https://st14.stblizko.ru/images/slides/001/102/119_big.png",
+        img: "./images/119_big.png",
         title: "Опт и розница",
         descript: "Отгружаем товары любыми партиями"
       },
@@ -45,11 +45,11 @@ block main
     section 
       header
         h2
-          a(name='block')= 'Блоки керамзитовые, керамзитобетонные и муровые'
+          a(id='block')= 'Блоки керамзитовые, керамзитобетонные и муровые'
         +gallery()
     section 
       header 
         h2 
-          a(name='delivery')= 'Доставка блока покупателям'
+          a(id='delivery')= 'Доставка блока покупателям'
       .section-text 
         //-include:markdown-it ../../data/delivery.md

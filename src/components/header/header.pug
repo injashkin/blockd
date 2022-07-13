@@ -17,6 +17,6 @@ mixin header(options = {})
         .header__address=data.company_address
         a.header__email(href=`mailto:${data.email}`)=data.email
       .header__contacts 
-        a.header__phone(href=`tel:${data.phone1}`)=data.phone1
+        a.header__phone(href="https://t.me/your_name")='Написать в Telegram'
         a.header__phone(href=`tel:${data.phone2}`)=data.phone2    
     +menu()

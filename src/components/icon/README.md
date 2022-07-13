@@ -17,4 +17,5 @@ modifier - модификатор класса БЭМ
 ```pug
 +icon('phone_black_24dp')
 +icon('phone_black_24dp', 'Позвонить')
++icon('phone_black_24dp', '', 'xxl')
 ```
