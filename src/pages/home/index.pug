@@ -1,6 +1,7 @@
 extends ../../layouts/base/base
 include ../../components/gallery/gallery
 include ../../components/slider/slider
+include ../../components/callback/callback
 
 block variables
   - const title = 'Купить блок керамзитовый муровой строительный в Юровке г. Анапа с доставкой'
@@ -52,4 +53,5 @@ block main
         h2 
           a(id='delivery')= 'Доставка блока покупателям'
       .section-text 
-        //-include:markdown-it ../../data/delivery.md
+        include:markdown-it ../../data/delivery.md
+        +callback()

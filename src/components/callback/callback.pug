@@ -1,0 +1,14 @@
+mixin callback
+  .window_wrap
+    .window
+      .window__close= 'X'
+        p Оставьте ваш телефон <br> и наш консультант свяжется с вами
+          form(id='backPhone' name='backPhone')
+            input(name='telephone' type='Tel' id='telForm' maxlength='20' placeholder='Введите ваш телефон' required='required')
+            button(id='telButton' type='submit' form='backPhone')= 'Заказать звонок'
+  .telButton.anim
+    .telButton_border
+    .telButton_background
+      span
+    .telButton_hover= 'Заказать звонок'
+  
