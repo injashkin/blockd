@@ -64,7 +64,7 @@
 
   animation-name: pulse;
   animation-duration: 5s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 2;
 }
 
 @keyframes pulse {
@@ -161,7 +161,7 @@
 
   animation-name: shadow;
   animation-duration: 1.5s;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 6;
   animation-timing-function: ease-out;
 }
 

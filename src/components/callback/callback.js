@@ -1,12 +1,31 @@
 import $ from 'jquery';
 
 export const callback = function () {
+  // document.addEventListener('DOMContentLoaded', function (event) {});
+
   $(document).ready(function () {
+    const wrap = document.querySelector('.window_wrap');
     var p = $('.window_wrap');
+
+    function handler(e) {
+      if (e.target.className === 'window_wrap') {
+        //if (e.target.className == this) {
+        wrap.style.display = 'none';
+        //}
+      }
+
+      if (e.target.className === 'window_close') {
+        wrap.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('click', handler);
+
     $('.telButton').click(function () {
       p.css({ display: 'block' }).hide().fadeIn(1000);
     });
 
+    /*
     p.click(function (event) {
       if (event.target == this) {
         $(this).css({ display: 'none' });
@@ -16,6 +35,7 @@ export const callback = function () {
     $('.window_close').click(function () {
       p.css({ display: 'none' });
     });
+    */
 
     $('#telButton').click(function (event) {
       event.preventDefault();
@@ -77,22 +97,44 @@ export const callback = function () {
       }
     );
 
+    const telButtonAnim = document.querySelector('.telButton.anim');
+
+    telButtonAnim.style.position = 'absolute';
+    telButtonAnim.style.top = '-100px';
+    telButtonAnim.style.right = '50px';
+    telButtonAnim.style.transition =
+      'top 0.9s cubic-bezier(.65, 1.95, .03, .32) 0.5s';
+
+    /*
     $('.telButton.anim').css({
       position: 'absolute',
       top: '-100px',
       right: '50px',
       transition: 'top 0.9s cubic-bezier(.65, 1.95, .03, .32) 0.5s',
     });
+    */
 
     telButtonReturn();
 
+    function handlerScroll(e) {
+      telButtonReturn();
+    }
+
+    /*
     $(window).scroll(function () {
       telButtonReturn();
     });
+    */
 
+    function handlerResize(e) {
+      telButtonReturn();
+    }
+
+    /*
     $(window).resize(function () {
       telButtonReturn();
     });
+    */
 
     function telButtonReturn() {
       var wHeight = getWindowHeight();
@@ -101,12 +143,21 @@ export const callback = function () {
 
       var result = wHeight + sHeight - 100;
 
+      telButtonAnim.style.position = 'absolute';
+      telButtonAnim.style.top = result + 'px';
+      telButtonAnim.style.right = '50px';
+
+      /*
       $('.telButton.anim').css({
         position: 'absolute',
         top: result + 'px',
         right: '50px',
       });
+      */
     }
+
+    window.addEventListener('scroll', handlerScroll);
+    window.addEventListener('resize', handlerResize);
 
     function getWindowHeight() {
       var windowHeight;
