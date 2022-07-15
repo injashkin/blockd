@@ -1,3 +1,4 @@
+import { paused } from 'browser-sync';
 import $ from 'jquery';
 
 export const callback = function () {
@@ -8,7 +9,7 @@ export const callback = function () {
     var p = $('.window_wrap');
 
     function handler(e) {
-      if (e.target.className === 'window_wrap') {
+      if (e.target.classList[0] === 'window_wrap') {
         //if (e.target.className == this) {
         wrap.style.display = 'none';
         //}
@@ -17,15 +18,24 @@ export const callback = function () {
       if (e.target.className === 'window_close') {
         wrap.style.display = 'none';
       }
+
+      console.log(e.target.classList[0]);
+      if (e.target.classList[0] === 'telButton_background') {
+        // не работает плавный переход
+        wrap.style.display = 'block';
+        wrap.classList.remove('hide');
+        wrap.classList.add('show');
+      }
     }
 
     document.addEventListener('click', handler);
 
+    /*
     $('.telButton').click(function () {
       p.css({ display: 'block' }).hide().fadeIn(1000);
     });
-
-    /*
+    
+    
     p.click(function (event) {
       if (event.target == this) {
         $(this).css({ display: 'none' });
@@ -77,17 +87,26 @@ export const callback = function () {
 
     $('.telButton .telButton_background').hover(
       function () {
-        var v = $('.telButton_hover');
-        if (!v.hasClass('fHovered')) {
+        //var v = $('.telButton_hover');
+        var v = document.querySelector('.telButton_hover');
+
+        if (!v.classList.contains('fHovered')) {
+          /*
           v.stop()
             .css('display', 'block')
             .animate({ opacity: 1 }, 1000)
             .addClass('fHovered');
+        */
+          v.style.animation = 'paused';
+          v.style.display = 'block';
+          v.style.opacity = '1';
+          v.classList.add('fHovered');
         }
       },
       function () {
+        var v2 = document.querySelector('.telButton_hover');
         var v = $('.telButton_hover');
-        if (v.hasClass('fHovered')) {
+        if (v2.classList.contains('fHovered')) {
           v.stop()
             .animate({ opacity: 0 }, 1000, function () {
               $(this).css('display', 'none');
@@ -116,7 +135,7 @@ export const callback = function () {
 
     telButtonReturn();
 
-    function handlerScroll(e) {
+    function handlerScroll() {
       telButtonReturn();
     }
 
@@ -126,7 +145,7 @@ export const callback = function () {
     });
     */
 
-    function handlerResize(e) {
+    function handlerResize() {
       telButtonReturn();
     }
 
@@ -139,7 +158,8 @@ export const callback = function () {
     function telButtonReturn() {
       var wHeight = getWindowHeight();
 
-      var sHeight = $(window).scrollTop();
+      // var sHeight = $(window).scrollTop();
+      var sHeight = window.scrollY;
 
       var result = wHeight + sHeight - 100;
 
@@ -160,9 +180,10 @@ export const callback = function () {
     window.addEventListener('resize', handlerResize);
 
     function getWindowHeight() {
-      var windowHeight;
+      let windowHeight;
 
-      windowHeight = $(window).height();
+      // windowHeight = $(window).height();
+      windowHeight = document.documentElement.clientHeight;
 
       return windowHeight;
     }
