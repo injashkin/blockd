@@ -1,4 +1,3 @@
-import { paused } from 'browser-sync';
 import $ from 'jquery';
 
 export const callback = function () {
@@ -6,49 +5,38 @@ export const callback = function () {
 
   $(document).ready(function () {
     const wrap = document.querySelector('.window_wrap');
-    var p = $('.window_wrap');
 
     function handler(e) {
       if (e.target.classList[0] === 'window_wrap') {
-        //if (e.target.className == this) {
         wrap.style.display = 'none';
-        //}
       }
 
       if (e.target.className === 'window_close') {
         wrap.style.display = 'none';
       }
 
-      console.log(e.target.classList[0]);
       if (e.target.classList[0] === 'telButton_background') {
         // не работает плавный переход
         wrap.style.display = 'block';
         wrap.classList.remove('hide');
         wrap.classList.add('show');
+
+        /*
+        $('.telButton').click(function () {
+          p.css({ display: 'block' }).hide().fadeIn(1000);
+        });  
+        */
+      }
+
+      if (e.target.id === 'telButton') {
+        handlerTelButton(e);
       }
     }
 
     document.addEventListener('click', handler);
 
-    /*
-    $('.telButton').click(function () {
-      p.css({ display: 'block' }).hide().fadeIn(1000);
-    });
-    
-    
-    p.click(function (event) {
-      if (event.target == this) {
-        $(this).css({ display: 'none' });
-      }
-    });
-
-    $('.window_close').click(function () {
-      p.css({ display: 'none' });
-    });
-    */
-
-    $('#telButton').click(function (event) {
-      event.preventDefault();
+    function handlerTelButton(e) {
+      e.preventDefault();
 
       var tel = $('#telForm').val();
 
@@ -83,38 +71,52 @@ export const callback = function () {
             });
           });
       });
-    });
+    }
 
-    $('.telButton .telButton_background').hover(
-      function () {
-        //var v = $('.telButton_hover');
+    function handlerMouseOver(e) {
+      if (e.target.classList[0] === 'telButton_background') {
         var v = document.querySelector('.telButton_hover');
 
         if (!v.classList.contains('fHovered')) {
+          console.log('!v');
           /*
           v.stop()
             .css('display', 'block')
             .animate({ opacity: 1 }, 1000)
             .addClass('fHovered');
-        */
+          */
           v.style.animation = 'paused';
           v.style.display = 'block';
+          v.style.animation = 'opacity 1000';
           v.style.opacity = '1';
           v.classList.add('fHovered');
         }
-      },
-      function () {
-        var v2 = document.querySelector('.telButton_hover');
-        var v = $('.telButton_hover');
-        if (v2.classList.contains('fHovered')) {
+      }
+    }
+
+    function handlerMouseOut(e) {
+      if (e.target.classList[0] === 'telButton_background') {
+        var v = document.querySelector('.telButton_hover');
+        if (v.classList.contains('fHovered')) {
+          /*  
           v.stop()
             .animate({ opacity: 0 }, 1000, function () {
               $(this).css('display', 'none');
             })
             .removeClass('fHovered');
+          */
+
+          v.style.animation = 'paused';
+          v.style.animation = 'opacity 1000';
+          v.style.opacity = '0';
+          //v.style.display = 'none';
+          v.classList.remove('fHovered');
         }
       }
-    );
+    }
+
+    window.addEventListener('mouseover', handlerMouseOver);
+    window.addEventListener('mouseout', handlerMouseOut);
 
     const telButtonAnim = document.querySelector('.telButton.anim');
 
@@ -124,41 +126,19 @@ export const callback = function () {
     telButtonAnim.style.transition =
       'top 0.9s cubic-bezier(.65, 1.95, .03, .32) 0.5s';
 
-    /*
-    $('.telButton.anim').css({
-      position: 'absolute',
-      top: '-100px',
-      right: '50px',
-      transition: 'top 0.9s cubic-bezier(.65, 1.95, .03, .32) 0.5s',
-    });
-    */
-
     telButtonReturn();
 
     function handlerScroll() {
       telButtonReturn();
     }
 
-    /*
-    $(window).scroll(function () {
-      telButtonReturn();
-    });
-    */
-
     function handlerResize() {
       telButtonReturn();
     }
 
-    /*
-    $(window).resize(function () {
-      telButtonReturn();
-    });
-    */
-
     function telButtonReturn() {
       var wHeight = getWindowHeight();
 
-      // var sHeight = $(window).scrollTop();
       var sHeight = window.scrollY;
 
       var result = wHeight + sHeight - 100;
@@ -166,14 +146,6 @@ export const callback = function () {
       telButtonAnim.style.position = 'absolute';
       telButtonAnim.style.top = result + 'px';
       telButtonAnim.style.right = '50px';
-
-      /*
-      $('.telButton.anim').css({
-        position: 'absolute',
-        top: result + 'px',
-        right: '50px',
-      });
-      */
     }
 
     window.addEventListener('scroll', handlerScroll);
@@ -182,7 +154,6 @@ export const callback = function () {
     function getWindowHeight() {
       let windowHeight;
 
-      // windowHeight = $(window).height();
       windowHeight = document.documentElement.clientHeight;
 
       return windowHeight;
