@@ -1,9 +1,7 @@
 import $ from 'jquery';
 
 export const callback = function () {
-  // document.addEventListener('DOMContentLoaded', function (event) {});
-
-  $(document).ready(function () {
+  document.addEventListener('DOMContentLoaded', function (event) {
     const wrap = document.querySelector('.window_wrap');
 
     function handler(e) {
@@ -38,37 +36,50 @@ export const callback = function () {
     function handlerTelButton(e) {
       e.preventDefault();
 
-      var tel = $('#telForm').val();
+      var tel = document.querySelector('#telForm').value;
 
       $('#backPhone').fadeOut(500, function () {
         $('<p>Отправка!</p>')
           .appendTo($('.window'))
           .hide()
           .fadeIn(300, function () {
-            $.ajax({
-              type: 'POST',
-              url: 'srv.php',
-              data: 'tel=' + tel,
-              dataType: 'json',
-              success: function (json) {
-                if (json.error) {
-                  $('.window p').last().remove();
-                  $('#backPhone').fadeIn(300, function () {
-                    alert(json.error);
-                  });
-                } else {
-                  $('.window p')
-                    .last()
-                    .fadeOut(300, function () {
-                      $(this)
-                        .text('Заявка принята!')
-                        .fadeIn(300, function () {
-                          $('.window_wrap').delay(1500).fadeOut(300);
-                        });
-                    });
-                }
-              },
+            let xhr = new XMLHttpRequest();
+            let str = `tel=${tel}`;
+            let json = JSON.stringify({
+              data: str,
             });
+            xhr.open('POST', 'srv.php');
+            xhr.responseType = 'json';
+            xhr.send(json);
+            xhr.onload = function () {
+              if (json.error) {
+                $('.window p').last().remove();
+
+                $('#backPhone').fadeIn(300, function () {
+                  alert(json.error);
+                });
+              } else {
+                const windowP = document.querySelectorAll('.window p');
+                const windowPLast = windowP[windowP.length - 1];
+                windowPLast.classList.remove('show');
+                setTimeout(() => windowPLast.classList.add('hide'), 300);
+                //console.log(windowP[windowP.length - 1]);
+                //$('.window p')
+                //  .last()
+                //  .fadeOut(300, function () {
+                windowPLast.textContent = 'Заявка принята!';
+                windowPLast.classList.remove('hide');
+                wrap.classList.add('show');
+                //$(windowPLast);
+                //.text('Заявка принята!')
+                //.fadeIn(300, function () {
+                //$('.window_wrap').delay(1500).fadeOut(300);
+                wrap.classList.remove('show');
+                setTimeout(() => wrap.classList.add('hide'), 1500);
+                //});
+                //  });
+              }
+            };
           });
       });
     }
@@ -78,7 +89,6 @@ export const callback = function () {
         var v = document.querySelector('.telButton_hover');
 
         if (!v.classList.contains('fHovered')) {
-          console.log('!v');
           /*
           v.stop()
             .css('display', 'block')
