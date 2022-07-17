@@ -1,29 +1,46 @@
 import $ from 'jquery';
 
 export const callback = function () {
+  function fadeOutJS(element, duration = 500, callback = () => {}) {
+    var opacity = 1;
+    var timer = setInterval(function () {
+      if (opacity < 0.1) {
+        clearInterval(timer);
+        callback();
+      }
+      element.style.opacity = opacity;
+      opacity -= 0.1;
+    }, duration / 10);
+  }
+
+  function fadeInJS(element, duration = 500, callback = () => {}) {
+    var opacity = 0;
+    var timer = setInterval(function () {
+      if (opacity > 1.0) {
+        clearInterval(timer);
+        callback();
+      }
+      element.style.opacity = opacity;
+      opacity += 0.1;
+    }, duration / 10);
+  }
+
   document.addEventListener('DOMContentLoaded', function (event) {
     const wrap = document.querySelector('.window_wrap');
 
     function handler(e) {
+      if (e.target.classList[0] === 'telButton_background') {
+        wrap.style.display = 'block';
+        wrap.classList.add('hide');
+        fadeInJS(wrap, 1000);
+      }
+
       if (e.target.classList[0] === 'window_wrap') {
         wrap.style.display = 'none';
       }
 
       if (e.target.className === 'window_close') {
         wrap.style.display = 'none';
-      }
-
-      if (e.target.classList[0] === 'telButton_background') {
-        // не работает плавный переход
-        wrap.style.display = 'block';
-        wrap.classList.remove('hide');
-        wrap.classList.add('show');
-
-        /*
-        $('.telButton').click(function () {
-          p.css({ display: 'block' }).hide().fadeIn(1000);
-        });  
-        */
       }
 
       if (e.target.id === 'telButton') {
@@ -37,50 +54,43 @@ export const callback = function () {
       e.preventDefault();
 
       var tel = document.querySelector('#telForm').value;
+      const backPhone = document.querySelector('#backPhone');
 
-      $('#backPhone').fadeOut(500, function () {
-        $('<p>Отправка!</p>')
-          .appendTo($('.window'))
-          .hide()
-          .fadeIn(300, function () {
-            let xhr = new XMLHttpRequest();
-            let str = `tel=${tel}`;
-            let json = JSON.stringify({
-              data: str,
-            });
-            xhr.open('POST', 'srv.php');
-            xhr.responseType = 'json';
-            xhr.send(json);
-            xhr.onload = function () {
-              if (json.error) {
-                $('.window p').last().remove();
+      fadeOutJS(backPhone, 500, function () {
+        const windowClass = document.querySelector('.window');
+        windowClass.insertAdjacentHTML('beforeend', '<p>Отправка!</p>');
+        windowClass.classList.add('hide');
 
-                $('#backPhone').fadeIn(300, function () {
-                  alert(json.error);
-                });
-              } else {
-                const windowP = document.querySelectorAll('.window p');
-                const windowPLast = windowP[windowP.length - 1];
-                windowPLast.classList.remove('show');
-                setTimeout(() => windowPLast.classList.add('hide'), 300);
-                //console.log(windowP[windowP.length - 1]);
-                //$('.window p')
-                //  .last()
-                //  .fadeOut(300, function () {
-                windowPLast.textContent = 'Заявка принята!';
-                windowPLast.classList.remove('hide');
-                wrap.classList.add('show');
-                //$(windowPLast);
-                //.text('Заявка принята!')
-                //.fadeIn(300, function () {
-                //$('.window_wrap').delay(1500).fadeOut(300);
-                wrap.classList.remove('show');
-                setTimeout(() => wrap.classList.add('hide'), 1500);
-                //});
-                //  });
-              }
-            };
+        fadeInJS(windowClass, 300, function () {
+          let xhr = new XMLHttpRequest();
+          let str = `tel=${tel}`;
+          let json = JSON.stringify({
+            data: str,
           });
+          xhr.open('POST', 'srv.php');
+          xhr.responseType = 'json';
+          xhr.send(json);
+          xhr.onload = function () {
+            const windowP = document.querySelectorAll('.window p');
+            const windowPLast = windowP[windowP.length - 1];
+            if (json.error) {
+              windowPLast.remove();
+
+              fadeInJS(backPhone, 300, function () {
+                alert(json.error);
+              });
+            } else {
+              fadeOutJS(windowPLast, 300, function () {
+                windowPLast.textContent = 'Заявка принята!';
+                fadeInJS(windowPLast, 300, function () {
+                  setTimeout(() => {
+                    fadeOutJS(wrap, 300);
+                  }, '1500');
+                });
+              });
+            }
+          };
+        });
       });
     }
 
