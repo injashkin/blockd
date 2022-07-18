@@ -1,7 +1,5 @@
-import $ from 'jquery';
-
 export const callback = function () {
-  function fadeOutJS(element, duration = 500, callback = () => {}) {
+  function fadeOut(element, duration = 500, callback = () => {}) {
     var opacity = 1;
     var timer = setInterval(function () {
       if (opacity < 0.1) {
@@ -13,10 +11,10 @@ export const callback = function () {
     }, duration / 10);
   }
 
-  function fadeInJS(element, duration = 500, callback = () => {}) {
+  function fadeIn(element, duration = 500, callback = () => {}) {
     var opacity = 0;
     var timer = setInterval(function () {
-      if (opacity > 1.0) {
+      if (opacity > 0.9) {
         clearInterval(timer);
         callback();
       }
@@ -31,8 +29,9 @@ export const callback = function () {
     function handler(e) {
       if (e.target.classList[0] === 'telButton_background') {
         wrap.style.display = 'block';
+        //wrap.style.display = 'block';
         wrap.classList.add('hide');
-        fadeInJS(wrap, 1000);
+        fadeIn(wrap, 500);
       }
 
       if (e.target.classList[0] === 'window_wrap') {
@@ -56,12 +55,13 @@ export const callback = function () {
       var tel = document.querySelector('#telForm').value;
       const backPhone = document.querySelector('#backPhone');
 
-      fadeOutJS(backPhone, 500, function () {
+      fadeOut(backPhone, 500, function () {
+        backPhone.style.display = 'none';
         const windowClass = document.querySelector('.window');
         windowClass.insertAdjacentHTML('beforeend', '<p>Отправка!</p>');
         windowClass.classList.add('hide');
 
-        fadeInJS(windowClass, 300, function () {
+        fadeIn(windowClass, 300, function () {
           let xhr = new XMLHttpRequest();
           let str = `tel=${tel}`;
           let json = JSON.stringify({
@@ -73,18 +73,19 @@ export const callback = function () {
           xhr.onload = function () {
             const windowP = document.querySelectorAll('.window p');
             const windowPLast = windowP[windowP.length - 1];
+
             if (json.error) {
               windowPLast.remove();
 
-              fadeInJS(backPhone, 300, function () {
+              fadeIn(backPhone, 300, function () {
                 alert(json.error);
               });
             } else {
-              fadeOutJS(windowPLast, 300, function () {
+              fadeOut(windowPLast, 300, function () {
                 windowPLast.textContent = 'Заявка принята!';
-                fadeInJS(windowPLast, 300, function () {
+                fadeIn(windowPLast, 300, function () {
                   setTimeout(() => {
-                    fadeOutJS(wrap, 300);
+                    fadeOut(wrap, 300);
                   }, '1500');
                 });
               });
@@ -99,12 +100,6 @@ export const callback = function () {
         var v = document.querySelector('.telButton_hover');
 
         if (!v.classList.contains('fHovered')) {
-          /*
-          v.stop()
-            .css('display', 'block')
-            .animate({ opacity: 1 }, 1000)
-            .addClass('fHovered');
-          */
           v.style.animation = 'paused';
           v.style.display = 'block';
           v.style.animation = 'opacity 1000';
@@ -118,14 +113,6 @@ export const callback = function () {
       if (e.target.classList[0] === 'telButton_background') {
         var v = document.querySelector('.telButton_hover');
         if (v.classList.contains('fHovered')) {
-          /*  
-          v.stop()
-            .animate({ opacity: 0 }, 1000, function () {
-              $(this).css('display', 'none');
-            })
-            .removeClass('fHovered');
-          */
-
           v.style.animation = 'paused';
           v.style.animation = 'opacity 1000';
           v.style.opacity = '0';

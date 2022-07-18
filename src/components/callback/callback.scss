@@ -24,10 +24,6 @@
   transition: color 0.5s ease;
 }
 
-.show {
-  opacity: 1;
-  transition: opacity 1s;
-}
 .hide {
   opacity: 0;
   transition: opacity 1s;
@@ -195,8 +191,8 @@
   background-color: #fff;
   border-radius: 15px;
   padding: 10px;
-  margin-left: -120px;
-  margin-top: 9px;
+  margin-left: -180px;
+  margin-top: 5px;
   font-size: 1em;
   color: #000;
   opacity: 0;
