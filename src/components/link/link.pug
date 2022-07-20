@@ -1,0 +1,7 @@
+mixin link(options = {})
+
+  - const {prefix, type, href, title, icon} = options
+
+  a(class=`${prefix}-link`, href=(type==='https')?`${href}`:`${type}:${href}`, title=`${title}`)
+    +icon(icon)
+    div(class=`${prefix}`)=title

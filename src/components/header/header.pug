@@ -1,7 +1,7 @@
 include ../menu/menu
+include ../link/link
 
 mixin header(options = {})  
-
   
   - const {logo_title, logo_file, logo_file_mobile, logo_img_alt, company_address, email, phone1, phone2} = options
 
@@ -15,14 +15,8 @@ mixin header(options = {})
           img(src=`./images/${logo_file_mobile}` alt=logo_img_alt)
       .header__location 
         .header__address=company_address
-        a.header__email-link(href=`mailto:${email}` title='Написать письмо')
-          +icon('email_black_24dp')
-          .header__email=email
+        +link({prefix: 'header__email', type: 'mailto', href: email, title: 'Написать письмо', icon: 'email_black_24dp'})
       .header__contacts
-        a.header__telegram-link(href="https://t.me/your_name"  title='Написать в Telegram')
-          +icon('telegram')       
-          .header__telegram='Мы в Telegram'
-        a.header__phone-link(href=`tel:${phone2}` title='Позвонить')
-          +icon('phone_black_24dp')
-          .header__phone-number=phone1 
+        +link({prefix: 'header__telegram', type: 'https', href: 'https://t.me/your_name', title: 'Мы в Telegram', icon: 'telegram'})
+        +link({prefix: 'header__phone', type: 'tel', href: phone2, title: 'Позвонить', icon: 'phone_black_24dp'})
     +menu()
