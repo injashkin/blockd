@@ -203,25 +203,26 @@
 
 $duration: 60s;
 $delay: 12s;
+$iteration: 1;
 
 .img1 {
-  animation: imgAnim $duration linear infinite;
+  animation: imgAnim $duration linear $iteration;
 }
 
 .img2 {
-  animation: imgAnim $duration linear $delay infinite;
+  animation: imgAnim $duration linear $delay $iteration;
 }
 
 .img3 {
-  animation: imgAnim $duration linear $delay * 2 infinite;
+  animation: imgAnim $duration linear $delay * 2 $iteration;
 }
 
 .img4 {
-  animation: imgAnim $duration linear $delay * 3 infinite;
+  animation: imgAnim $duration linear $delay * 3 $iteration;
 }
 
 .img5 {
-  animation: imgAnim $duration linear $delay * 4 infinite;
+  animation: imgAnim $duration linear $delay * 4 $iteration;
 }
 
 @keyframes imgAnim {
@@ -250,23 +251,23 @@ $delay: 12s;
 /*==============Активация при анимации кружка навигации*=================*/
 
 .round1 {
-  animation: butAnim $duration linear infinite;
+  animation: butAnim $duration linear $iteration;
 }
 
 .round2 {
-  animation: butAnim $duration linear $delay infinite;
+  animation: butAnim $duration linear $delay $iteration;
 }
 
 .round3 {
-  animation: butAnim $duration linear $delay * 2 infinite;
+  animation: butAnim $duration linear $delay * 2 $iteration;
 }
 
 .round4 {
-  animation: butAnim $duration linear $delay * 3 infinite;
+  animation: butAnim $duration linear $delay * 3 $iteration;
 }
 
 .round5 {
-  animation: butAnim $duration linear $delay * 4 infinite;
+  animation: butAnim $duration linear $delay * 4 $iteration;
 }
 
 @keyframes butAnim {

@@ -54,5 +54,6 @@ block main
           a(id='delivery')= 'Доставка блока покупателям'
       .section-text 
         include:markdown-it ../../data/delivery.md
-        //-+callback()
-    include ../../components/callbackJivo/callbackJivo.html
+        +callback()
+    //- include ../../components/callbackJivo/callbackJivo.html
+    //- include ../../components/callbackRC/callbackRC.html

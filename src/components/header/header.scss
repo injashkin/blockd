@@ -36,6 +36,13 @@ header {
     display: flex;
     flex-direction: column;
   }
+
+  &__telegram-link,
+  &__phone-link,
+  &__email-link {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media (max-width: $xl) {

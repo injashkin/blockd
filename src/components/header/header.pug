@@ -14,9 +14,15 @@ mixin header(options = {})
         a(href='/' title=logo_title)
           img(src=`./images/${logo_file_mobile}` alt=logo_img_alt)
       .header__location 
-        .header__address=data.company_address
-        a.header__email(href=`mailto:${data.email}`)=data.email
-      .header__contacts 
-        a.header__phone(href="https://t.me/your_name")='Написать в Telegram'
-        a.header__phone(href=`tel:${data.phone2}`)=data.phone2    
+        .header__address=company_address
+        a.header__email-link(href=`mailto:${email}` title='Написать письмо')
+          +icon('email_black_24dp')
+          .header__email=email
+      .header__contacts
+        a.header__telegram-link(href="https://t.me/your_name"  title='Написать в Telegram')
+          +icon('telegram')       
+          .header__telegram='Мы в Telegram'
+        a.header__phone-link(href=`tel:${phone2}` title='Позвонить')
+          +icon('phone_black_24dp')
+          .header__phone-number=phone1 
     +menu()

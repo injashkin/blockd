@@ -8,15 +8,15 @@ mixin footer(options = {})
   footer.footer 
     .footer__content.content
       #contacts.footer__contacts
-        a.footer__phone-link(href=`tel:${data.phone1}` title='Позвонить')          
+        a.footer__phone-link(href=`tel:${phone1}` title='Позвонить')          
           +icon('phone_black_24dp')       
           .footer__phone-number=phone1 
-        a.footer__phone-link(href=`tel:${data.phone2}` title='Позвонить')          
+        a.footer__phone-link(href=`tel:${phone2}` title='Позвонить')          
           +icon('phone_black_24dp')       
           .footer__phone-number=phone2 
       .footer__location 
         .footer__address=company_address
-        a.footer__email-link(href=`mailto:${data.email}` title='Написать письмо')
+        a.footer__email-link(href=`mailto:${email}` title='Написать письмо')
           +icon('email_black_24dp')
           .footer__email=email
       .footer__copyright-wrap
