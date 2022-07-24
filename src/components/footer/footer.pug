@@ -1,9 +1,9 @@
-include ../icon/icon
+include ../link/link
+include ../sendMessage/sendMessage
 
 mixin footer(options = {})
   - const {phone1, phone2, company_address, email, logo_title} = options
-    //-const data = require('../../data/data.json')
-    
+    //-const data = require('../../data/data.json')    
 
   footer.footer 
     .footer__content.content
@@ -13,6 +13,7 @@ mixin footer(options = {})
       .footer__location 
         .footer__address=company_address
         +link({prefix: 'footer__email', type: 'mailto', href: email, title: 'Написать письмо', icon: 'email_black_24dp'})
+        +sendMessage()
       .footer__copyright-wrap
         .footer__copyright=`${logo_title} © 2020`
         .footer__developer 

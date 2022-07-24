@@ -44,6 +44,12 @@
     margin-top: 1em;
   }
 
+  & h5 {
+    font-weight: 600;
+    font-size: 1.3em;
+    line-height: 1;
+  }
+
   @media (max-width: $md) {
     height: 13em;
 
