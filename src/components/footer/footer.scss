@@ -24,8 +24,6 @@
   }
 
   &__phone-link {
-    display: flex;
-    justify-content: space-between;
     font-size: 1.2em;
   }
 
@@ -36,11 +34,6 @@
 
   &__address {
     padding: 0 1.5em;
-  }
-
-  &__email-link {
-    display: flex;
-    justify-content: center;
   }
 
   &__email {

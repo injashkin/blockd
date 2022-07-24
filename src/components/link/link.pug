@@ -6,7 +6,7 @@ mixin link(options = {})
   - const popupText = (type==='tel') ? `Позвонить на номер: ${href}` : title
   - const link = (type==='https'||type==='http') ? `${href}` : `${type}:${href}`
 
-  a(class=`${prefix}-link`, href = link, title=popupText)
+  a(class=`${prefix}-link link`, href = link, title=popupText)
     if(icon !== '')
       +icon(icon)    
     div(class=`${prefix}`)=(type === 'tel') ? href : title
