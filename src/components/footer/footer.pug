@@ -2,7 +2,7 @@ include ../link/link
 include ../sendMessage/sendMessage
 
 mixin footer(options = {})
-  - const {phone1, phone2, company_address, email, logo_title} = options
+  - const {phone1, phone2, company_address, maps, email, logo_title} = options
 
   footer.footer 
     .footer__content.content
@@ -11,9 +11,10 @@ mixin footer(options = {})
         +link({prefix: 'footer__phone', type: 'tel', href: phone2, title: 'Позвонить', icon: 'phone'})
         +sendMessage({showText: false})
       .footer__location 
-        .footer__address=company_address
+        //-.footer__address=company_address
+        +link({prefix: 'footer__address', type: 'geo', href: maps, title: company_address, icon: 'place'})
         +link({prefix: 'footer__email', type: 'mailto', href: email, title: 'Написать письмо', icon: 'email'})
       .footer__copyright-wrap
         .footer__copyright=`${logo_title} © 2020`
         .footer__developer 
-          a(href='http://jinv.ru' target='_blank')='Разработка сайта jinv.ru'          
+          a(href='http://jinv.ru' target='_blank')='Разработка сайта jinv.ru'
