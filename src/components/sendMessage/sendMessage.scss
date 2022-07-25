@@ -3,20 +3,45 @@
   flex-direction: row;
   justify-content: center;
   margin: 1em 0;
-}
 
-.soc a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  fill: #ffffff;
-}
+  &-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em 0;
 
-.soc a:not(:last-child) {
-  margin: 0 0.5em 0 0;
+    & a {
+      width: 150px;
+      height: 40px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      fill: #ffffff;
+
+      &:not(:last-child) {
+        margin: 0 0 0.5em 0;
+      }
+
+      & svg {
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  & a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: #ffffff;
+  }
+
+  & a:not(:last-child) {
+    margin: 0 0.5em 0 0;
+  }
 }
 
 .mes-em {

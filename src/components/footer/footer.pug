@@ -9,7 +9,7 @@ mixin footer(options = {})
       #contacts.footer__contacts
         +link({prefix: 'footer__phone', type: 'tel', href: phone1, title: 'Позвонить', icon: 'phone'})
         +link({prefix: 'footer__phone', type: 'tel', href: phone2, title: 'Позвонить', icon: 'phone'})
-        +sendMessage(true)
+        +sendMessage({showText: false})
       .footer__location 
         .footer__address=company_address
         +link({prefix: 'footer__email', type: 'mailto', href: email, title: 'Написать письмо', icon: 'email'})
