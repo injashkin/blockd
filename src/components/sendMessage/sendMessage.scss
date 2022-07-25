@@ -1,0 +1,40 @@
+.soc {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.soc a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #ffffff;
+}
+
+.soc a:not(:last-child) {
+  margin: 0 0.5em 0 0;
+}
+
+.mes-em {
+  background: #08c;
+}
+
+.mes-tg {
+  background: #08c;
+}
+
+.mes-wa {
+  background: #25d366;
+}
+
+.mes-vi {
+  background: #59267c;
+}
+
+.mes-vk {
+  background: #4d7198;
+}

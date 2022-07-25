@@ -1,0 +1,11 @@
+include ../icon/icon
+include ../../data/sendMessage
+
+mixin sendMessage(options = {})  
+
+  .send-mes
+    h5= header
+    .soc
+      each soc in socs
+        a(class=soc.class, href=soc.href, title=soc.text, target='_blank', rel='nofollow')
+          +icon(soc.icon)
