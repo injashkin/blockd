@@ -1,21 +1,21 @@
 Миксин `icon(name)` вставляет значки SVG из спрайта `dist/svg/sprite.svg` по указанному имени `name`.
 
-Вызов:
+## Опции
 
 ```pug
-+icon(name[, title][, modifier])
++icon(name[, modifier])
 ```
 
 где
 
-name - имя значка в спрайте.
-title - поясняющий текст всплывающей подсказки
-modifier - модификатор класса БЭМ
+- name - имя значка в спрайте.
+- modifier - модификатор класса БЭМ
 
-Примеры:
+## Использование
 
 ```pug
-+icon('phone_black_24dp')
-+icon('phone_black_24dp', 'Позвонить')
-+icon('phone_black_24dp', '', 'xxl')
++icon('phone')
++icon('phone', 'xxl')
 ```
+
+Спрайт `dist/svg/sprite.svg` собирается из файлов `.svg`, которые расположены в каталоге `src/assets/svg/`. Файлы `.svg` взяты на [Material Symbols and Icons - Google Fonts](https://fonts.google.com/icons?icon.set=Material+Icons)
