@@ -1,7 +1,8 @@
 @import '../../layouts/variables';
 
 .footer {
-  height: 10em;
+  height: 11em;
+  margin-top: 1em;
   background-color: $background;
   color: $text-inverse;
   text-align: center;
@@ -51,7 +52,7 @@
   }
 
   @media (max-width: $md) {
-    height: 18em;
+    height: 20em;
 
     &__content {
       flex-direction: column;

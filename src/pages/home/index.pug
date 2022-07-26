@@ -2,6 +2,7 @@ extends ../../layouts/base/base
 include ../../components/gallery/gallery
 include ../../components/slider/slider
 include ../../components/callback/callback
+include ../../components/mapYandex/mapYandex
 
 block variables
   include ../../data/home.pug
@@ -26,5 +27,11 @@ block main
       .section-text 
         include:markdown-it ../../data/delivery.md
         +callback()
+    section 
+      header 
+        h2 
+          a(id='contacts')= 'Схема проезда'   
+      .section-text
+        +mapYandex()
     //- include ../../components/callbackJivo/callbackJivo.html
     //- include ../../components/callbackRC/callbackRC.html

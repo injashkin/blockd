@@ -129,7 +129,7 @@ export const callback = function () {
 
     telButtonAnim.style.position = 'absolute';
     telButtonAnim.style.top = '-100px';
-    telButtonAnim.style.right = '50px';
+    telButtonAnim.style.right = '40px';
     telButtonAnim.style.transition =
       'top 0.9s cubic-bezier(.65, 1.95, .03, .32) 0.5s';
 
@@ -152,7 +152,7 @@ export const callback = function () {
 
       telButtonAnim.style.position = 'absolute';
       telButtonAnim.style.top = result + 'px';
-      telButtonAnim.style.right = '50px';
+      telButtonAnim.style.right = '40px';
     }
 
     window.addEventListener('scroll', handlerScroll);
