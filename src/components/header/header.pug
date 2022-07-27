@@ -14,7 +14,7 @@ mixin header(options = {})
         a(href='/' title=logo_title)
           img(src=`./images/${logo_file_mobile}` alt=logo_img_alt)
       .header__location 
-        .header__address=company_address
+        +link({prefix: 'header__address', type: 'geo', href: maps, title: company_address, icon: 'place'})
         +link({prefix: 'header__email', type: 'mailto', href: email, title: 'Написать письмо', icon: 'email'})
       .header__contacts
         +link({prefix: 'header__telegram', type: 'https', href: 'https://t.me/your_name', title: 'Мы в Telegram', icon: 'telegram2'})

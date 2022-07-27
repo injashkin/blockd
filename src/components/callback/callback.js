@@ -29,7 +29,6 @@ export const callback = function () {
     function handler(e) {
       if (e.target.classList[0] === 'telButton_background') {
         wrap.style.display = 'block';
-        //wrap.style.display = 'block';
         wrap.classList.add('hide');
         fadeIn(wrap, 500);
       }
@@ -97,27 +96,24 @@ export const callback = function () {
 
     function handlerMouseOver(e) {
       if (e.target.classList[0] === 'telButton_background') {
-        var v = document.querySelector('.telButton_hover');
+        var v = document.querySelector('.js-telButton_hover');
 
-        if (!v.classList.contains('fHovered')) {
-          v.style.animation = 'paused';
+        if (!v.classList.contains('js-fHovered')) {
           v.style.display = 'block';
-          v.style.animation = 'opacity 1000';
-          v.style.opacity = '1';
-          v.classList.add('fHovered');
+          fadeIn(v, 300);
+          v.classList.add('js-fHovered');
         }
       }
     }
 
     function handlerMouseOut(e) {
       if (e.target.classList[0] === 'telButton_background') {
-        var v = document.querySelector('.telButton_hover');
-        if (v.classList.contains('fHovered')) {
-          v.style.animation = 'paused';
-          v.style.animation = 'opacity 1000';
-          v.style.opacity = '0';
-          //v.style.display = 'none';
-          v.classList.remove('fHovered');
+        var v = document.querySelector('.js-telButton_hover');
+        if (v.classList.contains('js-fHovered')) {
+          fadeOut(v, 300, function () {
+            v.style.display = 'none';
+          });
+          v.classList.remove('js-fHovered');
         }
       }
     }
@@ -125,13 +121,8 @@ export const callback = function () {
     window.addEventListener('mouseover', handlerMouseOver);
     window.addEventListener('mouseout', handlerMouseOut);
 
-    const telButtonAnim = document.querySelector('.telButton.anim');
-
-    telButtonAnim.style.position = 'absolute';
-    telButtonAnim.style.top = '-100px';
-    telButtonAnim.style.right = '40px';
-    telButtonAnim.style.transition =
-      'top 0.9s cubic-bezier(.65, 1.95, .03, .32) 0.5s';
+    const telButtonAnim = document.querySelector('.telButton');
+    telButtonAnim.classList.add('js-anim');
 
     telButtonReturn();
 
@@ -145,14 +136,10 @@ export const callback = function () {
 
     function telButtonReturn() {
       var wHeight = getWindowHeight();
-
       var sHeight = window.scrollY;
-
       var result = wHeight + sHeight - 100;
 
-      telButtonAnim.style.position = 'absolute';
       telButtonAnim.style.top = result + 'px';
-      telButtonAnim.style.right = '40px';
     }
 
     window.addEventListener('scroll', handlerScroll);
